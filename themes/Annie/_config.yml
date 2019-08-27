@@ -1,0 +1,244 @@
+#########################################################################################################
+# 001-HEADER
+#########################################################################################################
+# menu
+menu:
+    home: /
+    archive: /archives
+    categories: /categories
+    tags: /tags
+    about: /about
+    gallery: /gallery
+
+# favicon & logo
+# if the value of logo is false, the 'title' is optional.
+favicon: /img/favicon.ico
+logo: /img/logo.png
+title: Welcome 
+
+# background_image
+# /img/1.jpg
+# https://source.unsplash.com/collection/954550/1920x1080
+# https://sariay.github.io/Random-img/
+# May be cause CROS bug!
+# 你也可以在主题目录下的img文件夹中新建Random-img文件夹，
+# 将0.jpg、1.jpg、2.jpg、3.jpg……110.jpg命名格式的图片放入其中，然后将random_url的值设置为/img/Random-img/。
+background_image: 
+    mode: normal #normal or random
+    normal_url: /img/1.jpg
+    random_max: 110 
+    random_url: https://sariay.github.io/Random-img/
+    
+# show motto 随机名言与当地时间
+motto:
+    enable: true
+    
+# show current time
+# This is only a demo, please go to "https://time.is" to set your city time!
+timejs:
+    enable: true
+
+#########################################################################################################
+# 002-PROLOADER 确保背景图片加载完成和背景构造完成
+#########################################################################################################
+# animation: spinner | transition | cyclic 旋转 过渡 循环
+preloader:
+    enable: true
+    animation: spinner
+
+#########################################################################################################
+# 003-INDEX 首页文章展示有两种模式：图文模式cart和纯净模式pure
+#########################################################################################################
+# index-style: pure | cart
+index_style: cart
+
+# index_cart_cover 文章封面图
+cover: /img/cart_cover.jpg
+lazy_image: /img/placeholder.jpg
+
+#########################################################################################################
+# 004-POST 相关的文章 posts_limit为显示的文章篇数，posts_excerpt为每篇文章的文字截取数量
+#########################################################################################################
+# post_relate
+relate:
+    enable: true
+    posts_limit: 10
+    posts_excerpt: 120
+
+# post_comment 文章评论功能
+comment:
+    enable: true
+# https://sariay.github.io/2018/11/18/Annie%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8Gitalk/
+gitalk:
+    enable: true
+    clientID: '364a9cca58ff5a95c1ee' 
+    clientSecret: '1e16b6ba1daa2fddefd4de819db82b9a01f6406f' 
+    repo: blog-comment
+    owner: jmzc4j 
+    admin: jmzc4j 
+    distractionFreeMode: true
+    #去除 more、index.html、?query=123等格式尾部 
+    hrefTrimend: '#.*$,\\?.*$,index.html$' 
+
+# https://blog.xxwhite.com/2017/Valine.html   
+valine: 
+    enable: false
+    appid: 'DU--'
+    appkey: 'DU--'
+    placeholder: no any!
+
+# https://juejin.im/post/5a632dfcf265da3e484be90c 
+livere: 
+    enable: false
+    livere_uid: 'sdd'
+    
+# post_count     
+# 请参考文章Hexo博客next主题添加文章阅读量统计功能
+# https://cuibin1991.github.io/2017/07/31/Hexo%E5%8D%9A%E5%AE%A2next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD/
+leancloud_count:
+    enable: false
+    appid: 'dX--'
+    appkey: 'dX--'
+    # 文章点赞
+    like_post:
+        enable: true
+    # leancloud计数
+    visit_post:
+        enable: true
+    # 文章排行
+    topN_post: 
+        enable: true #param1 for topN_post
+        limit: 10 #param2 for topN_post
+
+# 站点分析
+## 蒜子计数 
+## 该模块放置于页脚，文章页面只显示文章的阅读量，其他页面只显示总访问量和访客数（待完善）
+busuanzi_count: 
+    enable: true
+
+baidu_analytics:
+    enable: false
+    id: 
+
+cnzz_analytics:
+    enable: false
+    id:
+
+google_analytics:
+    enable: false
+    id:
+
+tencent_analytics:
+    enable: false
+    id:
+
+# post_toc 文章目录
+# 若一篇文章的正文存在h1、h2、h3等标题，则文章页展示目录按钮。
+# 点击目录按钮，页面左侧展示文章目录。当屏幕宽度小于1024px或页面滚动高度大于文章正文高度时，页面隐藏文章目录。
+post_toc:
+    enable: true
+    katelog: true
+    
+# post_mathJax 数学公式
+mathjax:
+  enable: false
+  
+# post_code 
+# highlight_theme: normal | night | night blue | night bright | night eighties
+highlight_theme: night bright
+# 代码块复制
+code_copy:
+    enable: true
+
+# post_excerpt for index page  文字的截断
+excerpt_cart: 80
+excerpt_pure: 300   
+excerpt_link: true
+
+# post_share 文章分享功能
+# 使用addThis、shareThis时，应注意关闭浏览器的内容拦截插件。
+share:
+    enable: true
+addThis:
+    enable: false
+    id: ra-xxx
+# http://share.baidu.com/code
+baiduShare: 
+    enable: false
+    style: button # you can add slide style!
+# https://www.sharethis.com/onboarding-cms/    
+shareThis:
+    enable: false
+    id: 5c-xxx
+# https://github.com/overtrue/share.js
+socialShare:
+    enable: true
+
+#########################################################################################################
+# 005-FOOTER
+#########################################################################################################
+# social
+social:
+    github:
+        url: http://github.com/
+        icon: fa fa-github
+    weibo:
+        url: http://github.com/
+        icon: fa fa-weibo    
+    pinterest: 
+        url: http://github.com/
+        icon: fa fa-pinterest
+    instagram:
+        url: http://github.com/
+        icon: fa fa-instagram
+    twitter:
+        url: http://github.com/
+        icon: fa fa-twitter
+    rss: 
+        url: /atom.xml
+        icon: fa fa-rss
+
+# copyright  
+since: 2017
+cotent_author: Sariay
+
+#########################################################################################################
+# 006-GALLERY PAGE 相册页的使用
+#########################################################################################################
+# gallery page
+# gallery_format: natural | square
+gallery_format: natural
+# one time to load 4 rows or other count, 0 to load img automatically when scrolling.(0,1,2,3,4,5,6......)
+gallery_limit: 0
+# data url
+gallery_data: plugin/gallerypage/data.json
+
+#########################################################################################################
+# 007-LOCAL SEARCH
+#########################################################################################################
+# Local search
+# Dependencies: https://github.com/flashlab/hexo-generator-search
+local_search:
+    enable: true
+    # if auto, trigger search by changing input
+    # if manual, trigger search by pressing enter key or search button
+    trigger: auto
+    # show top n results per article, show all results by setting to -1
+    top_n_per_article: 2
+
+#########################################################################################################
+# 008-OTHERS
+#########################################################################################################
+# when click, emerge heart 点击页面浮现桃心
+love:
+    enable: true
+
+# back to top
+totop:
+    enable: true
+    
+# Annie Feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
