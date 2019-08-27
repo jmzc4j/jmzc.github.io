@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jmzc4j.github.io/"/>
-  <updated>2019-08-27T20:55:57.024Z</updated>
+  <updated>2019-08-27T20:59:57.237Z</updated>
   <id>https://jmzc4j.github.io/</id>
   
   <author>
@@ -21,15 +21,17 @@
     <link href="https://jmzc4j.github.io/2019/08/28/My-First-Blog/"/>
     <id>https://jmzc4j.github.io/2019/08/28/My-First-Blog/</id>
     <published>2019-08-27T20:50:45.000Z</published>
-    <updated>2019-08-27T20:55:57.024Z</updated>
+    <updated>2019-08-27T20:59:57.237Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是Hexo</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是Hexo</h2><ul><li>Hexo是用node编写的基于markdown引擎的用来快速搭建博客的框架；</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;什么是Hexo&quot;&gt;&lt;a href=&quot;#什么是Hexo&quot; class=&quot;headerlink&quot; title=&quot;什么是Hexo&quot;&gt;&lt;/a&gt;什么是Hexo&lt;/h2&gt;
+        &lt;h2 id=&quot;什么是Hexo&quot;&gt;&lt;a href=&quot;#什么是Hexo&quot; class=&quot;headerlink&quot; title=&quot;什么是Hexo&quot;&gt;&lt;/a&gt;什么是Hexo&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Hexo是用node编写的基于markdown引擎的用来快速搭建博客的框架；&lt;/li&gt;
+
       
     
     </summary>
