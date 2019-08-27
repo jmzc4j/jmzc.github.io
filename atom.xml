@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jmzc4j.github.io/"/>
-  <updated>2019-08-27T20:50:45.032Z</updated>
+  <updated>2019-08-27T20:55:57.024Z</updated>
   <id>https://jmzc4j.github.io/</id>
   
   <author>
@@ -21,12 +21,21 @@
     <link href="https://jmzc4j.github.io/2019/08/28/My-First-Blog/"/>
     <id>https://jmzc4j.github.io/2019/08/28/My-First-Blog/</id>
     <published>2019-08-27T20:50:45.000Z</published>
-    <updated>2019-08-27T20:50:45.032Z</updated>
+    <updated>2019-08-27T20:55:57.024Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是Hexo</h2>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;h2 id=&quot;什么是Hexo&quot;&gt;&lt;a href=&quot;#什么是Hexo&quot; class=&quot;headerlink&quot; title=&quot;什么是Hexo&quot;&gt;&lt;/a&gt;什么是Hexo&lt;/h2&gt;
+      
+    
     </summary>
     
+    
+      <category term="other" scheme="https://jmzc4j.github.io/tags/other/"/>
     
   </entry>
   
