@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2019-08-27T19:10:37.483Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="https://jmzc4j.github.io/"/>
+  <updated>2019-08-27T20:50:45.032Z</updated>
+  <id>https://jmzc4j.github.io/</id>
   
   <author>
     <name>SunYu</name>
@@ -17,9 +17,23 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>My First Blog</title>
+    <link href="https://jmzc4j.github.io/2019/08/28/My-First-Blog/"/>
+    <id>https://jmzc4j.github.io/2019/08/28/My-First-Blog/</id>
+    <published>2019-08-27T20:50:45.000Z</published>
+    <updated>2019-08-27T20:50:45.032Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2019/08/28/hello-world/"/>
-    <id>http://yoursite.com/2019/08/28/hello-world/</id>
+    <link href="https://jmzc4j.github.io/2019/08/28/hello-world/"/>
+    <id>https://jmzc4j.github.io/2019/08/28/hello-world/</id>
     <published>2019-08-27T19:10:37.483Z</published>
     <updated>2019-08-27T19:10:37.483Z</updated>
     
