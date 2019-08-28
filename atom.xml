@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jmzc4j.github.io/"/>
-  <updated>2019-08-28T10:30:48.032Z</updated>
+  <updated>2019-08-28T10:41:01.732Z</updated>
   <id>https://jmzc4j.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常用数据库的参数配置</title>
+    <link href="https://jmzc4j.github.io/2019/08/28/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/"/>
+    <id>https://jmzc4j.github.io/2019/08/28/常用数据库的参数配置/</id>
+    <published>2019-08-28T10:37:28.000Z</published>
+    <updated>2019-08-28T10:41:01.732Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="JDBC的URL"><a href="#JDBC的URL" class="headerlink" title="JDBC的URL"></a>JDBC的URL</h3><p>JDBC的URL＝协议名＋子协议名＋数据源名。<br>协议名总是“jdbc”。<br>子协议名由JDBC驱动程序的编写者决定。<br>数据源名也可能包含用户与口令等信息；这些信息也可单独提供。</p><h3 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h3><p>mysql.driver=com.mysql.jdbc.Driver<br>mysql.url=jdbc:mysql://192.168.157.130:3306/mybatis01?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false<br>mysql.username=root<br>mysql.password=root</p><h3 id="oracle"><a href="#oracle" class="headerlink" title="oracle"></a>oracle</h3><p>oracle.driver=oracle.jdbc.driver.OracleDriver<br>oracle.url=jdbc:oracle:thin:@127.0.0.1:1521:xe<br>oracle.username=system<br>oracle.password=abc123</p><h3 id="sql-server"><a href="#sql-server" class="headerlink" title="sql server"></a>sql server</h3><p>sqlServer.driver=com.microsoft.sqlserver.jdbc.SQLServerDriver<br>sqlServer.url=jdbc:sqlserver://localhost:1433;DatabaseName=mydb<br>sqlServer.username=sa<br>sqlServer.password=123</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;JDBC的URL&quot;&gt;&lt;a href=&quot;#JDBC的URL&quot; class=&quot;headerlink&quot; title=&quot;JDBC的URL&quot;&gt;&lt;/a&gt;JDBC的URL&lt;/h3&gt;&lt;p&gt;JDBC的URL＝协议名＋子协议名＋数据源名。&lt;br&gt;协议名总是“jdbc”。&lt;br&gt;子协议
+      
+    
+    </summary>
+    
+      <category term="配置文件" scheme="https://jmzc4j.github.io/categories/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"/>
+    
+    
+      <category term="database" scheme="https://jmzc4j.github.io/tags/database/"/>
+    
+  </entry>
   
   <entry>
     <title>Mybatis常用配置</title>
