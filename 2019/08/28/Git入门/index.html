@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Java,Study,Notes,Daily Life,"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style-dark.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight-dark.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><link rel="stylesheet" type="text/css" href="https://unpkg.com/gitalk/dist/gitalk.css?v=2.0.4"><title>Git入门 | Jmzc's Blog</title></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Git入门</h1><a id="logo" href="/.">Jmzc's Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">Git入门</h1><div class="post-meta"><a href="/2019/08/28/Git入门/#comments" class="comment-count"></a><p><span class="date">Aug 28, 2019</span><span><a href="/categories/学习笔记/" class="category">学习笔记</a></span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h3 id="what-is"><a href="#what-is" class="headerlink" title="what is"></a>what is</h3><ul>
+<li>git 是一个免费开源的分布式版本控制工具；</li>
+<li><a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener">书籍-Pro Git</a>：有关git的一切可阅读此书获取；</li>
+</ul>
+<h3 id="why-use-it"><a href="#why-use-it" class="headerlink" title="why use it"></a>why use it</h3><ul>
+<li>既可以进行本地版本控制，又可以进行分布式版本控制；</li>
+<li>不存在集中式版本控制工具的单点故障问题；</li>
+<li>具有强大的分支管理；</li>
+<li>由于是Linus开发，天然可以使用Linux命令；</li>
+</ul>
+<h3 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h3><ul>
+<li><p>假设有三个目录，并做了提交;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add README test.rb LICENSE</span><br><span class="line">$ git commit -m &apos;The initial commit of my project&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Git会对每个子目录进行校验，并将它们作为树对象存储在Git存储库中;然后Git创建一个提交对象，该对象具有元数据和指向根项目树的指针，因此它可以在需要时重新创建该快照。</p>
+</li>
+<li><p><img src="https://git-scm.com/book/en/v2/images/commit-and-tree.png" alt="A commit and its tree">;</p>
+</li>
+<li><p>如果进行一些更改并再次提交，则下一个提交会存储指向紧接其之前的提交的指针。</p>
+</li>
+<li><p><img src="https://git-scm.com/book/en/v2/images/commits-and-parents.png" alt="Commits and their parents">；</p>
+</li>
+<li><p>Git中的一个分支只是一个指向其中一个提交的轻量级可移动指针。Git中的默认分支名称是master。当你开始提交时，你会得到一个master指向你最后一次提交的分支。每次提交时，master分支指针都会自动向前移动。</p>
+</li>
+<li><p><img src="https://git-scm.com/book/en/v2/images/branch-and-history.png" alt="A branch and its commit history">;</p>
+</li>
+<li><p>Git中的“主”分支不是特殊分支。它与任何其他分支完全一样。几乎每个存储库都有一个的唯一原因是该git init命令默认创建它，并且大多数人都不愿意更改它。</p>
+</li>
+</ul>
+<h3 id="how-to-use-it"><a href="#how-to-use-it" class="headerlink" title="how to use it"></a>how to use it</h3><ul>
+<li><p>安装</p>
+<ol>
+<li><a href="https://git-scm.com/download/linux" target="_blank" rel="noopener">Linux说明</a>;   </li>
+<li><a href="https://git-scm.com/download/mac" target="_blank" rel="noopener">macOS下载地址</a>;   </li>
+<li><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Windows下载地址</a>;             </li>
+</ol>
+</li>
+<li><p>首次配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 安装Git时应该做的第一件事是设置用户名和电子邮件地址</span><br><span class="line"># --system：指定系统级别，--global：指定用户级别</span><br><span class="line">$ git config --global user.name &quot;John Doe&quot;</span><br><span class="line">$ git config --global user.email johndoe@example.com</span><br><span class="line"></span><br><span class="line"># 使用以下方法查看所有设置及其来源</span><br><span class="line">$ git config --list --show-origin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取帮助</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git help &lt;verb&gt;</span><br><span class="line">$ git &lt;verb&gt; --help</span><br><span class="line">$ man git-&lt;verb&gt;</span><br><span class="line"></span><br><span class="line"># 如果您不需要完整的联机帮助页面帮助，但只需要快速了解Git命令的可用选项，您可以使用-h或--help,如：</span><br><span class="line">$ git add -h</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常用命令</p>
+<ol>
+<li><code>$ git init</code>：在现有目录中初始化存储库；</li>
+<li><code>$ git add xxx</code>：将xxx文件从工作区添加到暂存区；untrace-stage；</li>
+<li><code>$ git commit -m &#39;initial project version&#39;</code>：从暂存区永久提交到当前分支；stage-unmodified；</li>
+<li><code>$ git clone https://github.com/libgit2/libgit2 mylibgit</code>：克隆存储库到本地并修改存储库的目录名；</li>
+<li><code>$ git status</code>：查看文件状态，主要查看文件内容是否发生了变化；</li>
+<li><code>$ git diff</code>：查看工作区与暂存区的更改；</li>
+<li><code>$ git diff --cached</code>：查看暂存区与上次提交的更改；</li>
+<li><code>$ git log  [--pretty=oneline]</code>：查看提交历史，用于回退过去；</li>
+<li><code>$ git reflog</code>：查看命令历史，用于追溯未来；</li>
+<li><code>$ git reset --hard commitID</code>：切换版本；</li>
+<li><code>$ git rm --cached README</code>：删除暂存区文件；</li>
+<li><code>$ git checkout xxx</code>：同步到工作区；</li>
+<li><code>$ git commit --amend</code>：重做提交；</li>
+<li><code>$ git remote -v</code>：查看远程时要使用的短名称存储的URL；</li>
+<li><code>$ git remote add &lt;shortname&gt; &lt;url&gt;</code>：为远程库添加一个新的短名称；</li>
+<li><code>$ git fetch &lt;remote&gt;</code>：从远处库抓取数据；</li>
+<li><code>$ git push &lt;remote&gt; &lt;branch&gt;</code>：推送当前分支到远程库</li>
+<li><code>$ git remote rename pb paul</code>：更改远程库别名pb为paul；</li>
+<li><code>$ git remote remove paul</code>：删除一个远程库url；</li>
+<li><code>$ git push &lt;remote&gt;</code>：抓取并合并到本地；</li>
+<li><code>$ git branch testing</code>：创建一个testing分支；</li>
+<li><code>$ git checkout testing</code>:切换分支；</li>
+<li><code>$ git merge hotfix</code>：合并hotfix分支到当前分支上；</li>
+<li><code>$ git branch -d hotfix</code>：删除分支；</li>
+<li><code>$ git branch -v</code>：查看每个分支上的最后一次提交；</li>
+<li><code>$ git branch --merged</code>：查看已经合并了的分支，不带星号的分支可以删除；</li>
+<li><code>$ git push &lt;remote&gt; &lt;branch&gt;</code>：将本地分支推送到一个名称不同的远程分支；</li>
+<li><code>$ git checkout -b sf origin/serverfix</code>：设置名称与远程分支不同的本地分支；</li>
+<li><code>git branch -u origin/serverfix</code>：更新当前分支为远程分支；</li>
+<li><code>$ git push origin --delete serverfix</code>：完成合并删除远程分支；</li>
+</ol>
+</li>
+</ul>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li><a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener">书籍-Pro Git</a>;</li>
+<li><a href="https://www.cnblogs.com/chris0710/p/8925977.html" target="_blank" rel="noopener">博客园-Git命令总结</a>;</li>
+<li><a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰-Git教程</a>;</li>
+</ul>
+</div><div class="post-copyright"><blockquote><p>原文作者: Jmzc</p><p>原文链接: <a href="https://jmzc4j.github.io/2019/08/28/Git入门/">https://jmzc4j.github.io/2019/08/28/Git入门/</a></p><p>版权声明: 转载请注明出处(必须保留作者署名及链接)</p></blockquote></div><div class="tags"><a href="/tags/git/">git</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2019/08/28/Redis命令/" class="next">Redis命令</a></div><div id="comments"><div id="container"><script type="text/javascript" src="https://unpkg.com/gitalk/dist/gitalk.min.js?v=2.0.4"></script><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=2.0.4"></script><script>var gitalk = new Gitalk({
+  clientID: '364a9cca58ff5a95c1ee',
+  clientSecret: '1e16b6ba1daa2fddefd4de819db82b9a01f6406f',
+  repo: 'blog-comment',
+  owner: 'jmzc4j',
+  admin: ['jmzc4j'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: false,
+  language: 'zh-CN',
+  pagerDirection: 'last'
+})
+gitalk.render('container')</script></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#what-is"><span class="toc-text">what is</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#why-use-it"><span class="toc-text">why use it</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git分支"><span class="toc-text">Git分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how-to-use-it"><span class="toc-text">how to use it</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Git入门/">Git入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Redis命令/">Redis命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Maven入门/">Maven入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/使用Hexo搭建博客系统/">使用Hexo搭建博客系统</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><span class="category-list-count">4</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/maven/" style="font-size: 15px;">maven</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://hexo.io/zh-cn/" title="Hexo官网网站" target="_blank">Hexo官网网站</a><ul></ul><a href="https://files-cdn.cnblogs.com/files/live365wang/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C%EF%BC%88%E8%AF%A6%E5%B0%BD%E7%89%88%EF%BC%89.pdf" title="Alibaba Java开发手册" target="_blank">Alibaba Java开发手册</a><ul></ul><a href="https://www.jianshu.com/p/b03a8d7b1719" title="MarkDown基本语法" target="_blank">MarkDown基本语法</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">Jmzc.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.4" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
