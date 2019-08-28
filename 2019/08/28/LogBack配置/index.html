@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Java,Study,Notes,Daily Life,"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style-dark.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight-dark.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><link rel="stylesheet" type="text/css" href="https://unpkg.com/gitalk/dist/gitalk.css?v=2.0.4"><title>LogBack配置 | Jmzc's Blog</title></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">LogBack配置</h1><a id="logo" href="/.">Jmzc's Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">LogBack配置</h1><div class="post-meta"><a href="/2019/08/28/LogBack配置/#comments" class="comment-count"></a><p><span class="date">Aug 28, 2019</span><span><a href="/categories/配置文件/" class="category">配置文件</a></span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h3 id="logback-xml"><a href="#logback-xml" class="headerlink" title="logback.xml"></a>logback.xml</h3><?xml version="1.0" encoding="UTF-8"?>
+<!--
+    scan: 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。
+    scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。
+    debug: 当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。
+-->
+<configuration debug="true" scan="true" scanperiod="60 seconds">
+    <!-- 上下文名称，用于区分不同应用程序的记录 默认default -->
+    <contextname>default</contextname>
+
+<pre><code>&lt;!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 --&gt;
+&lt;property name=&quot;LOG_HOME&quot; value=&quot;./log&quot; /&gt;
+&lt;!-- 定义日志布局的转换样式 --&gt;
+&lt;!--格式化输出：%d表示日期，%p优先级，%c类全限定名，%M方法名，%L行号，%m日志信息，%n换行 --&gt;
+&lt;property name=&quot;layout_pattern&quot; value=&quot;%d{yyyy-MM-dd HH:mm:ss}[%p][%c][%M][%L] -&gt; %m%n&quot; /&gt;
+&lt;property name=&quot;layout_pattern2&quot; value=&quot;%date [%thread] %-5level %logger{36} [%line] - %msg%n&quot;/&gt;
+&lt;!-- 定义要保存的最大归档文件数量，异步删除旧文件 （需要结合滚动pattern具体分析） --&gt;
+&lt;property name=&quot;logFile_period&quot; value=&quot;30&quot; /&gt;
+&lt;!-- 定义单个日志文件的最大为10M 超出此大小则生成新文件 --&gt;
+&lt;property name=&quot;logFile_maxSize&quot; value=&quot;10MB&quot; /&gt;
+
+&lt;!-- 邮件参数设置 --&gt;
+&lt;!-- 定义邮件服务器地址 --&gt;
+&lt;property name=&quot;smtpHost&quot; value=&quot;smtp.163.com&quot; /&gt;
+&lt;!-- smtp端口 ，默认值25 --&gt;
+&lt;property name=&quot;smtpPort&quot; value=&quot;25&quot; /&gt;
+&lt;!-- 发件人用户名 --&gt;
+&lt;property name=&quot;username&quot; value=&quot;jmzc_top&quot; /&gt;
+&lt;!-- 发件人授权码 --&gt;
+&lt;property name=&quot;password&quot; value=&quot;grant163tojmzc&quot; /&gt;
+&lt;!-- 安全连接 默认false --&gt;
+&lt;property name=&quot;SSL&quot; value=&quot;false&quot; /&gt;
+&lt;!-- 收件人邮箱 --&gt;
+&lt;property name=&quot;email_to&quot; value=&quot;jmzc_top@aliyun.com&quot; /&gt;
+&lt;!-- 发件人邮箱 --&gt;
+&lt;property name=&quot;email_from&quot; value=&quot;jmzc_top@163.com&quot; /&gt;
+&lt;!-- 主题 默认%logger{20} - %m --&gt;
+&lt;property name=&quot;email_subject&quot; value=&quot;【Error】: %logger&quot; /&gt;
+
+&lt;!-- 输出日志到控制台 --&gt;
+&lt;appender name=&quot;Console&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
+    &lt;encoder class=&quot;ch.qos.logback.classic.encoder.PatternLayoutEncoder&quot;&gt;
+        &lt;pattern&gt;${layout_pattern}&lt;/pattern&gt;
+        &lt;charset&gt;UTF-8&lt;/charset&gt;
+    &lt;/encoder&gt;
+    &lt;!-- 过滤器，记录&gt;=DEBUG级别的日志 --&gt;
+    &lt;filter class=&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;&gt;
+        &lt;level&gt;DEBUG&lt;/level&gt;
+    &lt;/filter&gt;
+&lt;/appender&gt;
+&lt;!-- 输入日志到文件 DEBUG级别 --&gt;
+&lt;appender name=&quot;FileDebug&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;
+    &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;
+        &lt;FileNamePattern&gt;${LOG_HOME}/debug.%d{yyyyMMdd}.zip&lt;/FileNamePattern&gt;
+        &lt;MaxHistory&gt;${logFile_period}&lt;/MaxHistory&gt;
+    &lt;/rollingPolicy&gt;
+    &lt;encoder class=&quot;ch.qos.logback.classic.encoder.PatternLayoutEncoder&quot;&gt;
+        &lt;pattern&gt;${layout_pattern}&lt;/pattern&gt;
+    &lt;/encoder&gt;
+    &lt;triggeringPolicy class=&quot;ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy&quot;&gt;
+        &lt;MaxFileSize&gt;${logFile_maxSize}&lt;/MaxFileSize&gt;
+    &lt;/triggeringPolicy&gt;
+    &lt;filter class=&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;&gt;
+        &lt;level&gt;DEBUG&lt;/level&gt;
+    &lt;/filter&gt;
+    &lt;!-- 过滤器，只记录DEBUG级别的日志 --&gt;
+    &lt;!-- &lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;
+        &lt;level&gt;DEBUG&lt;/level&gt;
+        &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;
+        &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;
+        &lt;/filter&gt; --&gt;
+&lt;/appender&gt;
+
+&lt;!-- 输入日志到文件 ERROR级别 --&gt;
+&lt;appender name=&quot;FileError&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;
+    &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;
+        &lt;!-- 设置文件滚动的样式 %d{yyyyMMdd}表示每天滚动 或者达到最大文件大小后滚动 .gz | .zip | .log | .txt --&gt;
+        &lt;FileNamePattern&gt;${LOG_HOME}/error.%d{yyyyMMdd}.zip&lt;/FileNamePattern&gt;
+        &lt;MaxHistory&gt;${logFile_period}&lt;/MaxHistory&gt;
+    &lt;/rollingPolicy&gt;
+    &lt;encoder class=&quot;ch.qos.logback.classic.encoder.PatternLayoutEncoder&quot;&gt;
+        &lt;pattern&gt;${layout_pattern}&lt;/pattern&gt;
+    &lt;/encoder&gt;
+    &lt;triggeringPolicy class=&quot;ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy&quot;&gt;
+        &lt;MaxFileSize&gt;${logFile_maxSize}&lt;/MaxFileSize&gt;
+    &lt;/triggeringPolicy&gt;
+    &lt;filter class=&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;&gt;
+        &lt;level&gt;ERROR&lt;/level&gt;
+    &lt;/filter&gt;
+&lt;/appender&gt;
+
+&lt;!-- 输出日志到邮件 janino.jar和mail.jar --&gt;
+&lt;appender name=&quot;Email&quot; class=&quot;ch.qos.logback.classic.net.SMTPAppender&quot;&gt;
+    &lt;!-- 基于标记和日志等级发送邮件 --&gt;
+    &lt;evaluator class=&quot;ch.qos.logback.classic.boolex.JaninoEventEvaluator&quot;&gt;
+        &lt;expression&gt;
+            (level &gt; WARN &amp;amp;&amp;amp; null != throwable)||(marker != null &amp;amp;&amp;amp; marker.contains(&quot;DEVELOP&quot;))
+        &lt;/expression&gt;
+    &lt;/evaluator&gt;
+    &lt;!-- 一个邮件只包含一个日志条目 --&gt;
+    &lt;cyclicBufferTracker class=&quot;ch.qos.logback.core.spi.CyclicBufferTracker&quot;&gt;
+        &lt;bufferSize&gt;1&lt;/bufferSize&gt;
+    &lt;/cyclicBufferTracker&gt;
+    &lt;!-- 设置同步发送，异步不好用？？？ --&gt;
+    &lt;asynchronousSending&gt;false&lt;/asynchronousSending&gt;
+    &lt;smtpHost&gt;${smtpHost}&lt;/smtpHost&gt;
+    &lt;smtpPort&gt;${smtpPort}&lt;/smtpPort&gt;
+    &lt;SSL&gt;${SSL}&lt;/SSL&gt;
+    &lt;username&gt;${username}&lt;/username&gt;
+    &lt;password&gt;${password}&lt;/password&gt;
+    &lt;to&gt;${email_to}&lt;/to&gt;
+    &lt;from&gt;${email_from}&lt;/from&gt;
+    &lt;subject&gt;${email_subject}&lt;/subject&gt;
+    &lt;layout class=&quot;ch.qos.logback.classic.PatternLayout&quot;&gt;
+        &lt;Pattern&gt;${layout_pattern}&lt;/Pattern&gt;
+    &lt;/layout&gt;
+&lt;/appender&gt;
+
+&lt;!-- root是所有logger的祖先 --&gt;
+&lt;!-- 日志输出级别 TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR --&gt;
+&lt;root level=&quot;INFO&quot;&gt;
+    &lt;appender-ref ref=&quot;Console&quot; /&gt;
+    &lt;!--
+        &lt;appender-ref ref=&quot;FileDebug&quot; /&gt;
+        &lt;appender-ref ref=&quot;FileError&quot; /&gt;
+        &lt;appender-ref ref=&quot;Email&quot; /&gt;
+    --&gt;
+&lt;/root&gt;
+
+&lt;!-- show parameters for hibernate sql 专为 Hibernate 定制 --&gt;
+&lt;logger name=&quot;org.hibernate.type.descriptor.sql.BasicBinder&quot; level=&quot;TRACE&quot; /&gt;
+&lt;logger name=&quot;org.hibernate.type.descriptor.sql.BasicExtractor&quot; level=&quot;DEBUG&quot; /&gt;
+&lt;logger name=&quot;org.hibernate.SQL&quot; level=&quot;DEBUG&quot; /&gt;
+&lt;logger name=&quot;org.hibernate.engine.QueryParameters&quot; level=&quot;DEBUG&quot; /&gt;
+&lt;logger name=&quot;org.hibernate.engine.query.HQLQueryPlan&quot; level=&quot;DEBUG&quot; /&gt;
+
+&lt;!--myibatis log configure--&gt;
+&lt;logger name=&quot;com.apache.ibatis&quot; level=&quot;TRACE&quot;/&gt;
+&lt;logger name=&quot;java.sql.Connection&quot; level=&quot;DEBUG&quot;/&gt;
+&lt;logger name=&quot;java.sql.Statement&quot; level=&quot;DEBUG&quot;/&gt;
+&lt;logger name=&quot;java.sql.PreparedStatement&quot; level=&quot;DEBUG&quot;/&gt;</code></pre></configuration>
+</div><div class="post-copyright"><blockquote><p>原文作者: Jmzc</p><p>原文链接: <a href="https://jmzc4j.github.io/2019/08/28/LogBack配置/">https://jmzc4j.github.io/2019/08/28/LogBack配置/</a></p><p>版权声明: 转载请注明出处(必须保留作者署名及链接)</p></blockquote></div><div class="tags"><a href="/tags/logback/">logback</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2019/08/28/Log4j配置/" class="next">Log4j配置</a></div><div id="comments"><div id="container"><script type="text/javascript" src="https://unpkg.com/gitalk/dist/gitalk.min.js?v=2.0.4"></script><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=2.0.4"></script><script>var gitalk = new Gitalk({
+  clientID: '364a9cca58ff5a95c1ee',
+  clientSecret: '1e16b6ba1daa2fddefd4de819db82b9a01f6406f',
+  repo: 'blog-comment',
+  owner: 'jmzc4j',
+  admin: ['jmzc4j'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: false,
+  language: 'zh-CN',
+  pagerDirection: 'last'
+})
+gitalk.render('container')</script></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#logback-xml"><span class="toc-text">logback.xml</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/LogBack配置/">LogBack配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Log4j配置/">Log4j配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Mybatis逆向工程配置/">Mybatis逆向工程配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/MySQL常用配置/">MySQL常用配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/常用数据库的参数配置/">常用数据库的参数配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Mybatis常用配置/">Mybatis常用配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Redis常用配置/">Redis常用配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Docker入门/">Docker入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Git入门/">Git入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Redis命令/">Redis命令</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置文件/">配置文件</a><span class="category-list-count">7</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/logback/" style="font-size: 15px;">logback</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/mybatis/" style="font-size: 15px;">mybatis</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/database/" style="font-size: 15px;">database</a> <a href="/tags/log4j/" style="font-size: 15px;">log4j</a> <a href="/tags/maven/" style="font-size: 15px;">maven</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://hexo.io/zh-cn/" title="Hexo官网网站" target="_blank">Hexo官网网站</a><ul></ul><a href="https://files-cdn.cnblogs.com/files/live365wang/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C%EF%BC%88%E8%AF%A6%E5%B0%BD%E7%89%88%EF%BC%89.pdf" title="Alibaba Java开发手册" target="_blank">Alibaba Java开发手册</a><ul></ul><a href="https://www.jianshu.com/p/b03a8d7b1719" title="MarkDown基本语法" target="_blank">MarkDown基本语法</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">Jmzc.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.4" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>

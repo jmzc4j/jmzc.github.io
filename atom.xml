@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jmzc4j.github.io/"/>
-  <updated>2019-08-28T10:44:57.928Z</updated>
+  <updated>2019-08-28T10:51:32.472Z</updated>
   <id>https://jmzc4j.github.io/</id>
   
   <author>
@@ -15,6 +15,82 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LogBack配置</title>
+    <link href="https://jmzc4j.github.io/2019/08/28/LogBack%E9%85%8D%E7%BD%AE/"/>
+    <id>https://jmzc4j.github.io/2019/08/28/LogBack配置/</id>
+    <published>2019-08-28T10:51:03.000Z</published>
+    <updated>2019-08-28T10:51:32.472Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="logback-xml"><a href="#logback-xml" class="headerlink" title="logback.xml"></a>logback.xml</h3><?xml version="1.0" encoding="UTF-8"?><!--    scan: 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。    scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。    debug: 当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。--><configuration debug="true" scan="true" scanperiod="60 seconds">    <!-- 上下文名称，用于区分不同应用程序的记录 默认default -->    <contextname>default</contextname><pre><code>&lt;!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 --&gt;&lt;property name=&quot;LOG_HOME&quot; value=&quot;./log&quot; /&gt;&lt;!-- 定义日志布局的转换样式 --&gt;&lt;!--格式化输出：%d表示日期，%p优先级，%c类全限定名，%M方法名，%L行号，%m日志信息，%n换行 --&gt;&lt;property name=&quot;layout_pattern&quot; value=&quot;%d{yyyy-MM-dd HH:mm:ss}[%p][%c][%M][%L] -&gt; %m%n&quot; /&gt;&lt;property name=&quot;layout_pattern2&quot; value=&quot;%date [%thread] %-5level %logger{36} [%line] - %msg%n&quot;/&gt;&lt;!-- 定义要保存的最大归档文件数量，异步删除旧文件 （需要结合滚动pattern具体分析） --&gt;&lt;property name=&quot;logFile_period&quot; value=&quot;30&quot; /&gt;&lt;!-- 定义单个日志文件的最大为10M 超出此大小则生成新文件 --&gt;&lt;property name=&quot;logFile_maxSize&quot; value=&quot;10MB&quot; /&gt;&lt;!-- 邮件参数设置 --&gt;&lt;!-- 定义邮件服务器地址 --&gt;&lt;property name=&quot;smtpHost&quot; value=&quot;smtp.163.com&quot; /&gt;&lt;!-- smtp端口 ，默认值25 --&gt;&lt;property name=&quot;smtpPort&quot; value=&quot;25&quot; /&gt;&lt;!-- 发件人用户名 --&gt;&lt;property name=&quot;username&quot; value=&quot;jmzc_top&quot; /&gt;&lt;!-- 发件人授权码 --&gt;&lt;property name=&quot;password&quot; value=&quot;grant163tojmzc&quot; /&gt;&lt;!-- 安全连接 默认false --&gt;&lt;property name=&quot;SSL&quot; value=&quot;false&quot; /&gt;&lt;!-- 收件人邮箱 --&gt;&lt;property name=&quot;email_to&quot; value=&quot;jmzc_top@aliyun.com&quot; /&gt;&lt;!-- 发件人邮箱 --&gt;&lt;property name=&quot;email_from&quot; value=&quot;jmzc_top@163.com&quot; /&gt;&lt;!-- 主题 默认%logger{20} - %m --&gt;&lt;property name=&quot;email_subject&quot; value=&quot;【Error】: %logger&quot; /&gt;&lt;!-- 输出日志到控制台 --&gt;&lt;appender name=&quot;Console&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;    &lt;encoder class=&quot;ch.qos.logback.classic.encoder.PatternLayoutEncoder&quot;&gt;        &lt;pattern&gt;${layout_pattern}&lt;/pattern&gt;        &lt;charset&gt;UTF-8&lt;/charset&gt;    &lt;/encoder&gt;    &lt;!-- 过滤器，记录&gt;=DEBUG级别的日志 --&gt;    &lt;filter class=&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;&gt;        &lt;level&gt;DEBUG&lt;/level&gt;    &lt;/filter&gt;&lt;/appender&gt;&lt;!-- 输入日志到文件 DEBUG级别 --&gt;&lt;appender name=&quot;FileDebug&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;    &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;        &lt;FileNamePattern&gt;${LOG_HOME}/debug.%d{yyyyMMdd}.zip&lt;/FileNamePattern&gt;        &lt;MaxHistory&gt;${logFile_period}&lt;/MaxHistory&gt;    &lt;/rollingPolicy&gt;    &lt;encoder class=&quot;ch.qos.logback.classic.encoder.PatternLayoutEncoder&quot;&gt;        &lt;pattern&gt;${layout_pattern}&lt;/pattern&gt;    &lt;/encoder&gt;    &lt;triggeringPolicy class=&quot;ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy&quot;&gt;        &lt;MaxFileSize&gt;${logFile_maxSize}&lt;/MaxFileSize&gt;    &lt;/triggeringPolicy&gt;    &lt;filter class=&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;&gt;        &lt;level&gt;DEBUG&lt;/level&gt;    &lt;/filter&gt;    &lt;!-- 过滤器，只记录DEBUG级别的日志 --&gt;    &lt;!-- &lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;        &lt;level&gt;DEBUG&lt;/level&gt;        &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;        &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;        &lt;/filter&gt; --&gt;&lt;/appender&gt;&lt;!-- 输入日志到文件 ERROR级别 --&gt;&lt;appender name=&quot;FileError&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;    &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;        &lt;!-- 设置文件滚动的样式 %d{yyyyMMdd}表示每天滚动 或者达到最大文件大小后滚动 .gz | .zip | .log | .txt --&gt;        &lt;FileNamePattern&gt;${LOG_HOME}/error.%d{yyyyMMdd}.zip&lt;/FileNamePattern&gt;        &lt;MaxHistory&gt;${logFile_period}&lt;/MaxHistory&gt;    &lt;/rollingPolicy&gt;    &lt;encoder class=&quot;ch.qos.logback.classic.encoder.PatternLayoutEncoder&quot;&gt;        &lt;pattern&gt;${layout_pattern}&lt;/pattern&gt;    &lt;/encoder&gt;    &lt;triggeringPolicy class=&quot;ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy&quot;&gt;        &lt;MaxFileSize&gt;${logFile_maxSize}&lt;/MaxFileSize&gt;    &lt;/triggeringPolicy&gt;    &lt;filter class=&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;&gt;        &lt;level&gt;ERROR&lt;/level&gt;    &lt;/filter&gt;&lt;/appender&gt;&lt;!-- 输出日志到邮件 janino.jar和mail.jar --&gt;&lt;appender name=&quot;Email&quot; class=&quot;ch.qos.logback.classic.net.SMTPAppender&quot;&gt;    &lt;!-- 基于标记和日志等级发送邮件 --&gt;    &lt;evaluator class=&quot;ch.qos.logback.classic.boolex.JaninoEventEvaluator&quot;&gt;        &lt;expression&gt;            (level &gt; WARN &amp;amp;&amp;amp; null != throwable)||(marker != null &amp;amp;&amp;amp; marker.contains(&quot;DEVELOP&quot;))        &lt;/expression&gt;    &lt;/evaluator&gt;    &lt;!-- 一个邮件只包含一个日志条目 --&gt;    &lt;cyclicBufferTracker class=&quot;ch.qos.logback.core.spi.CyclicBufferTracker&quot;&gt;        &lt;bufferSize&gt;1&lt;/bufferSize&gt;    &lt;/cyclicBufferTracker&gt;    &lt;!-- 设置同步发送，异步不好用？？？ --&gt;    &lt;asynchronousSending&gt;false&lt;/asynchronousSending&gt;    &lt;smtpHost&gt;${smtpHost}&lt;/smtpHost&gt;    &lt;smtpPort&gt;${smtpPort}&lt;/smtpPort&gt;    &lt;SSL&gt;${SSL}&lt;/SSL&gt;    &lt;username&gt;${username}&lt;/username&gt;    &lt;password&gt;${password}&lt;/password&gt;    &lt;to&gt;${email_to}&lt;/to&gt;    &lt;from&gt;${email_from}&lt;/from&gt;    &lt;subject&gt;${email_subject}&lt;/subject&gt;    &lt;layout class=&quot;ch.qos.logback.classic.PatternLayout&quot;&gt;        &lt;Pattern&gt;${layout_pattern}&lt;/Pattern&gt;    &lt;/layout&gt;&lt;/appender&gt;&lt;!-- root是所有logger的祖先 --&gt;&lt;!-- 日志输出级别 TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR --&gt;&lt;root level=&quot;INFO&quot;&gt;    &lt;appender-ref ref=&quot;Console&quot; /&gt;    &lt;!--        &lt;appender-ref ref=&quot;FileDebug&quot; /&gt;        &lt;appender-ref ref=&quot;FileError&quot; /&gt;        &lt;appender-ref ref=&quot;Email&quot; /&gt;    --&gt;&lt;/root&gt;&lt;!-- show parameters for hibernate sql 专为 Hibernate 定制 --&gt;&lt;logger name=&quot;org.hibernate.type.descriptor.sql.BasicBinder&quot; level=&quot;TRACE&quot; /&gt;&lt;logger name=&quot;org.hibernate.type.descriptor.sql.BasicExtractor&quot; level=&quot;DEBUG&quot; /&gt;&lt;logger name=&quot;org.hibernate.SQL&quot; level=&quot;DEBUG&quot; /&gt;&lt;logger name=&quot;org.hibernate.engine.QueryParameters&quot; level=&quot;DEBUG&quot; /&gt;&lt;logger name=&quot;org.hibernate.engine.query.HQLQueryPlan&quot; level=&quot;DEBUG&quot; /&gt;&lt;!--myibatis log configure--&gt;&lt;logger name=&quot;com.apache.ibatis&quot; level=&quot;TRACE&quot;/&gt;&lt;logger name=&quot;java.sql.Connection&quot; level=&quot;DEBUG&quot;/&gt;&lt;logger name=&quot;java.sql.Statement&quot; level=&quot;DEBUG&quot;/&gt;&lt;logger name=&quot;java.sql.PreparedStatement&quot; level=&quot;DEBUG&quot;/&gt;</code></pre></configuration>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;logback-xml&quot;&gt;&lt;a href=&quot;#logback-xml&quot; class=&quot;headerlink&quot; title=&quot;logback.xml&quot;&gt;&lt;/a&gt;logback.xml&lt;/h3&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?
+      
+    
+    </summary>
+    
+      <category term="配置文件" scheme="https://jmzc4j.github.io/categories/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"/>
+    
+    
+      <category term="logback" scheme="https://jmzc4j.github.io/tags/logback/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Log4j配置</title>
+    <link href="https://jmzc4j.github.io/2019/08/28/Log4j%E9%85%8D%E7%BD%AE/"/>
+    <id>https://jmzc4j.github.io/2019/08/28/Log4j配置/</id>
+    <published>2019-08-28T10:49:24.000Z</published>
+    <updated>2019-08-28T10:50:24.354Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="log4j-xml"><a href="#log4j-xml" class="headerlink" title="log4j.xml"></a>log4j.xml</h3><?xml version="1.0" encoding="UTF-8"?><!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd"><p><a href="log4j:configuration" target="_blank" rel="noopener">log4j:configuration</a><br>    <!--输出到控制台--><br>    <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender"><br>        <param name="Threshold" value="DEBUG"><br>        <layout class="org.apache.log4j.PatternLayout"><br>            <param name="ConversionPattern" value="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"><br>        </layout><br>    </appender></p><pre><code>&lt;!--输出到文件（info）--&gt;&lt;!--将生成“info.log.2014-06-11”这样的日志文件--&gt;&lt;appender name=&quot;fileAppenderInfo&quot; class=&quot;org.apache.log4j.DailyRollingFileAppender&quot;&gt;    &lt;param name=&quot;File&quot; value=&quot;${user.home}/logs/website/info.log&quot; /&gt;    &lt;param name=&quot;DatePattern&quot; value=&quot;.yyyy-MM-dd&quot; /&gt;    &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;        &lt;param name=&quot;ConversionPattern&quot; value=&quot;[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n&quot;/&gt;    &lt;/layout&gt;    &lt;filter class=&quot;org.apache.log4j.varia.LevelRangeFilter&quot;&gt;        &lt;param name=&quot;LevelMin&quot; value=&quot;INFO&quot; /&gt;        &lt;param name=&quot;LevelMax&quot; value=&quot;INFO&quot; /&gt;    &lt;/filter&gt;&lt;/appender&gt;&lt;!--输出到文件（warn）--&gt;&lt;appender name=&quot;fileAppenderWarn&quot; class=&quot;org.apache.log4j.DailyRollingFileAppender&quot;&gt;    &lt;param name=&quot;File&quot; value=&quot;${user.home}/logs/website/warn.log&quot; /&gt;    &lt;param name=&quot;DatePattern&quot; value=&quot;.yyyy-MM-dd&quot; /&gt;    &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;        &lt;param name=&quot;ConversionPattern&quot; value=&quot;[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n&quot;/&gt;    &lt;/layout&gt;    &lt;filter class=&quot;org.apache.log4j.varia.LevelRangeFilter&quot;&gt;        &lt;param name=&quot;LevelMin&quot; value=&quot;WARN&quot; /&gt;        &lt;param name=&quot;LevelMax&quot; value=&quot;WARN&quot; /&gt;    &lt;/filter&gt;&lt;/appender&gt;&lt;!--输出到文件（error）--&gt;&lt;appender name=&quot;fileAppenderError&quot; class=&quot;org.apache.log4j.DailyRollingFileAppender&quot;&gt;    &lt;param name=&quot;File&quot; value=&quot;${user.home}/logs/website/error.log&quot; /&gt;    &lt;param name=&quot;DatePattern&quot; value=&quot;.yyyy-MM-dd&quot; /&gt;    &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;        &lt;param name=&quot;ConversionPattern&quot; value=&quot;[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n&quot;/&gt;    &lt;/layout&gt;    &lt;filter class=&quot;org.apache.log4j.varia.LevelRangeFilter&quot;&gt;        &lt;param name=&quot;LevelMin&quot; value=&quot;ERROR&quot; /&gt;        &lt;param name=&quot;LevelMax&quot; value=&quot;ERROR&quot; /&gt;    &lt;/filter&gt;&lt;/appender&gt;&lt;!--屏蔽所有org.springframework.*输出的Debug（及以下）信息--&gt;&lt;logger name=&quot;org.springframework&quot;&gt;    &lt;level value=&quot;INFO&quot;&gt;&lt;/level&gt;&lt;/logger&gt;&lt;root&gt;    &lt;level value=&quot;ALL&quot;/&gt;    &lt;appender-ref ref=&quot;consoleAppender&quot; /&gt; &lt;!--    &lt;appender-ref ref=&quot;fileAppenderInfo&quot; /&gt;    &lt;appender-ref ref=&quot;fileAppenderWarn&quot; /&gt;    &lt;appender-ref ref=&quot;fileAppenderError&quot; /&gt; --&gt;&lt;/root&gt;</code></pre><p></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;log4j-xml&quot;&gt;&lt;a href=&quot;#log4j-xml&quot; class=&quot;headerlink&quot; title=&quot;log4j.xml&quot;&gt;&lt;/a&gt;log4j.xml&lt;/h3&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCT
+      
+    
+    </summary>
+    
+      <category term="配置文件" scheme="https://jmzc4j.github.io/categories/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"/>
+    
+    
+      <category term="log4j" scheme="https://jmzc4j.github.io/tags/log4j/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mybatis逆向工程配置</title>
+    <link href="https://jmzc4j.github.io/2019/08/28/Mybatis%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE/"/>
+    <id>https://jmzc4j.github.io/2019/08/28/Mybatis逆向工程配置/</id>
+    <published>2019-08-28T10:46:27.000Z</published>
+    <updated>2019-08-28T10:47:40.233Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="generateConfig-xml"><a href="#generateConfig-xml" class="headerlink" title="generateConfig.xml"></a>generateConfig.xml</h3><?xml version="1.0" encoding="UTF-8"?><!DOCTYPE generatorConfiguration  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"><generatorconfiguration>    <!--导入属性配置-->    <properties resource="generatorConfig.properties"><pre><code>&lt;!--指定特定数据库的jdbc驱动jar包的位置--&gt;&lt;classPathEntry location=&quot;${db.driverLocation}&quot; /&gt;&lt;!-- targetRuntime=&quot;MyBatis3&quot;：选择运行的mybatis版本 ;如果你希望不生成和Example查询有关的内容,可以使用MyBatis3Simple--&gt;&lt;!-- defaultModelType=&quot;flat&quot; :这种类型的model会为每个表生成唯一的一个类，这个类中会包含表中所有的字段 ;默认值conditional --&gt;&lt;context id=&quot;default&quot; targetRuntime=&quot;MyBatis3&quot;    defaultModelType=&quot;flat&quot;&gt;    &lt;!-- 在创建class时，对注释进行控制 --&gt;    &lt;commentGenerator&gt;        &lt;!-- 阻止生成注释，默认为false --&gt;        &lt;property name=&quot;suppressAllComments&quot; value=&quot;true&quot; /&gt;    &lt;/commentGenerator&gt;    &lt;!--jdbc的数据库连接 --&gt;    &lt;jdbcConnection driverClass=&quot;${jdbc.driverClass}&quot;        connectionURL=&quot;${jdbc.jdbcUrl}&quot; userId=&quot;${jdbc.user}&quot; password=&quot;${jdbc.password}&quot;&gt;    &lt;/jdbcConnection&gt;    &lt;!-- 是否强制DECIMAL和NUMERIC类型的字段转换为Java类型的java.math.BigDecimal --&gt;    &lt;javaTypeResolver&gt;        &lt;property name=&quot;forceBigDecimals&quot; value=&quot;false&quot; /&gt;    &lt;/javaTypeResolver&gt;    &lt;!-- Model模型生成器,用来生成含有主键key的类，记录类 以及查询Example类 --&gt;    &lt;javaModelGenerator targetPackage=&quot;${pojoTargetPackage}&quot;        targetProject=&quot;${targetProject}&quot;&gt;        &lt;!-- 是否允许子包，即targetPackage.schemaName.tableName --&gt;        &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot; /&gt;        &lt;!-- 是否对model添加 构造函数 --&gt;        &lt;property name=&quot;constructorBased&quot; value=&quot;true&quot; /&gt;        &lt;!-- 是否对类CHAR类型的列的数据进行trim操作 --&gt;        &lt;property name=&quot;trimStrings&quot; value=&quot;true&quot; /&gt;        &lt;!-- 建立的Model对象是否不可改变  即生成的Model对象不会有 setter方法，只有构造方法 --&gt;        &lt;property name=&quot;immutable&quot; value=&quot;false&quot; /&gt;    &lt;/javaModelGenerator&gt;     &lt;!--mapper xml映射文件生成所在的目录 为每一个数据库的表生成对应的SqlMap文件 --&gt;    &lt;sqlMapGenerator targetPackage=&quot;${xmlTargetPackage}&quot;        targetProject=&quot;${xmlTargetProject}&quot;&gt;        &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot; /&gt;    &lt;/sqlMapGenerator&gt;    &lt;!--         type=&quot;XMLMAPPER&quot; 接口和XML完全分离，接口中不出现SQL语句, 修改SQL不需要重新编译 (推荐使用)        type=&quot;ANNOTATEDMAPPER&quot;,生成Java Model 和基于注解的Mapper对象        type=&quot;MIXEDMAPPER&quot;,生成基于注解的Java Model 和相应的Mapper对象    --&gt;    &lt;javaClientGenerator type=&quot;XMLMAPPER&quot;        targetPackage=&quot;${mapperTargetPackage}&quot; targetProject=&quot;${targetProject}&quot;&gt;        &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot; /&gt;    &lt;/javaClientGenerator&gt;    &lt;!-- 生成全部的表   tableName=&quot;%&quot; --&gt;    &lt;table tableName=&quot;EMP&quot; domainObjectName=&quot;Emp&quot;&gt;        &lt;!-- generatedKey：用来指定生成的主键  会在Insert语句中添加 selectKey标签 --&gt;        &lt;generatedKey column=&quot;EMPNO&quot; sqlStatement=&quot;MySql&quot; /&gt;    &lt;/table&gt;    &lt;table tableName=&quot;DEPT&quot; domainObjectName=&quot;Dept&quot;&gt;&lt;/table&gt;&lt;/context&gt;</code></pre></properties></generatorconfiguration>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;generateConfig-xml&quot;&gt;&lt;a href=&quot;#generateConfig-xml&quot; class=&quot;headerlink&quot; title=&quot;generateConfig.xml&quot;&gt;&lt;/a&gt;generateConfig.xml&lt;/h3&gt;&lt;?xml ver
+      
+    
+    </summary>
+    
+      <category term="配置文件" scheme="https://jmzc4j.github.io/categories/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"/>
+    
+    
+      <category term="mybatis" scheme="https://jmzc4j.github.io/tags/mybatis/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL常用配置</title>
