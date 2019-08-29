@@ -1,0 +1,82 @@
+---
+title: Mybatis逆向工程配置
+date: 2019-08-28 18:46:27
+tags: mybatis
+categories: 配置文件
+---
+### what is
+- mybatis逆向工程，就是mybatis会根据我们设计好的数据表，自动生成pojo、mapper以及mapper.xml；
+- 官方文档：[generator](http://www.mybatis.org/generator/);
+
+### generateConfig.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!--导入属性配置-->
+	<properties resource="generatorConfig.properties" />
+	
+	<!--指定特定数据库的jdbc驱动jar包的位置-->
+	<classPathEntry location="${db.driverLocation}" />
+	
+    <!-- targetRuntime="MyBatis3"：选择运行的mybatis版本 ;如果你希望不生成和Example查询有关的内容,可以使用MyBatis3Simple-->
+    <!-- defaultModelType="flat" :这种类型的model会为每个表生成唯一的一个类，这个类中会包含表中所有的字段 ;默认值conditional -->
+	<context id="default" targetRuntime="MyBatis3"
+		defaultModelType="flat">
+		
+		<!-- 在创建class时，对注释进行控制 -->
+		<commentGenerator>
+			<!-- 阻止生成注释，默认为false -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<!--jdbc的数据库连接 -->
+		<jdbcConnection driverClass="${jdbc.driverClass}"
+			connectionURL="${jdbc.jdbcUrl}" userId="${jdbc.user}" password="${jdbc.password}">
+		</jdbcConnection>
+		
+		<!-- 是否强制DECIMAL和NUMERIC类型的字段转换为Java类型的java.math.BigDecimal -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- Model模型生成器,用来生成含有主键key的类，记录类 以及查询Example类 -->
+		<javaModelGenerator targetPackage="${pojoTargetPackage}"
+			targetProject="${targetProject}">
+			<!-- 是否允许子包，即targetPackage.schemaName.tableName -->
+			<property name="enableSubPackages" value="false" />
+            <!-- 是否对model添加 构造函数 -->
+			<property name="constructorBased" value="true" />
+            <!-- 是否对类CHAR类型的列的数据进行trim操作 -->
+			<property name="trimStrings" value="true" />
+            <!-- 建立的Model对象是否不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
+			<property name="immutable" value="false" />
+		</javaModelGenerator>
+
+		 <!--mapper xml映射文件生成所在的目录 为每一个数据库的表生成对应的SqlMap文件 -->
+		<sqlMapGenerator targetPackage="${xmlTargetPackage}"
+			targetProject="${xmlTargetProject}">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+		
+        <!-- 
+        	type="XMLMAPPER" 接口和XML完全分离，接口中不出现SQL语句, 修改SQL不需要重新编译 (推荐使用)
+        	type="ANNOTATEDMAPPER",生成Java Model 和基于注解的Mapper对象
+        	type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
+        -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="${mapperTargetPackage}" targetProject="${targetProject}">
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+		
+        <!-- 生成全部的表   tableName="%" -->
+		<table tableName="EMP" domainObjectName="Emp">
+            <!-- generatedKey：用来指定生成的主键  会在Insert语句中添加 selectKey标签 -->
+			<generatedKey column="EMPNO" sqlStatement="MySql" />
+		</table>
+		<table tableName="DEPT" domainObjectName="Dept"></table>
+	</context>
+</generatorConfiguration>
+```

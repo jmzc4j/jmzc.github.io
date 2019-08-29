@@ -145,9 +145,9 @@ about:
 
 # Links widget. Empty links will hide widget.
 links:
-  - title: site-name1
-    url: http://www.example1.com/
-  - title: site-name2
-    url: http://www.example2.com/
-  - title: site-name3
-    url: http://www.example3.com/
+  - title: Hexo官网网站
+    url: https://hexo.io/zh-cn/
+  - title: Alibaba Java开发手册
+    url: https://files-cdn.cnblogs.com/files/live365wang/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C%EF%BC%88%E8%AF%A6%E5%B0%BD%E7%89%88%EF%BC%89.pdf
+  - title: MarkDown基本语法
+    url: https://www.jianshu.com/p/b03a8d7b1719
