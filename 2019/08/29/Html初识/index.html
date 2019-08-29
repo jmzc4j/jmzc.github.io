@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Java,Study,Notes,Daily Life,"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style-dark.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight-dark.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><link rel="stylesheet" type="text/css" href="https://unpkg.com/gitalk/dist/gitalk.css?v=2.0.4"><title>Html初识 | Jmzc's Blog</title></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Html初识</h1><a id="logo" href="/.">Jmzc's Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">Html初识</h1><div class="post-meta"><a href="/2019/08/29/Html初识/#comments" class="comment-count"></a><p><span class="date">Aug 29, 2019</span><span><a href="/categories/学习笔记/" class="category">学习笔记</a></span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h3 id="一-软件的架构"><a href="#一-软件的架构" class="headerlink" title="一 软件的架构"></a>一 软件的架构</h3><ul>
+<li><p>C/S架构：(client-server)客户端服务器架构：    </p>
+<ol>
+<li>用户需要安装客户端来使用软件；</li>
+<li>每次服务端更新后需要更新客户端；</li>
+<li>针对不同的操作系统，需要开发不同的客户端程序，跨平台性差；</li>
+<li>使用自有协议，相对来说安全性较好；</li>
+</ol>
+</li>
+<li><p>B/S架构：(browser-server)浏览器服务器架构:    </p>
+<ol>
+<li>不需要安装客户端，只要有一个浏览器即可；</li>
+<li>软件更新不需要更新客户端；</li>
+<li>由于只需开发服务端，跨平台性较好；</li>
+<li>使用公共的http协议或者https协议，相对C/S架构来说可能安全性稍差；</li>
+</ol>
+</li>
+<li><p>网页组成：根据w3c的标准，一个网页主要由结构、表现和行为组成，即html、css和js。</p>
+</li>
+</ul>
+<h3 id="二-HTML"><a href="#二-HTML" class="headerlink" title="二 HTML"></a>二 HTML</h3><ul>
+<li>html：hypertext markup language,超文本标记语言：<ol>
+<li>不是一门编程语言，而是一门告诉浏览器如何组织页面的标记语言，决定了网页的结构；</li>
+<li>元素是html的基本单位，通常情况下，一个元素有开始标签、结束标签和内容构成；</li>
+<li>HTML标签不区分大小写，从可读性和一致性方面通常使用小写字母；</li>
+<li>元素按照性质可分成块级元素和内联元素两大类别；</li>
+<li>没有内容的元素称之为空元素；</li>
+<li>可以在开始标签中为元素添加属性，属性通常是一组由等号连接的名值对，值用引号包裹；</li>
+<li>当属性没有值或者其值为属性名本身，这样的属性称之为布尔属性；</li>
+</ol>
+</li>
+<li>完整的html页面的组成:   <ol>
+<li>文档类型声明<!doctype html>，h5声明，最短的有效的文档声明；</li>
+<li>html根元素，包裹了一个完整html页面；</li>
+<li>head元素，包裹了所有想包含在html页面中但不想在页面中显示的内容，如标题、描述、关键字、字符集等；</li>
+<li>body元素，包裹了所有想在网页中显示的内容，如文本、图片、音频、视频等；</li>
+</ol>
+</li>
+</ul>
+<h3 id="三-HTML元素"><a href="#三-HTML元素" class="headerlink" title="三 HTML元素"></a>三 HTML元素</h3><ul>
+<li>元数据：meta</li>
+<li>标题和段落：h、p</li>
+<li>超链接和图片：a、img、figure、picture</li>
+<li>列表：ul、ol、dl</li>
+<li>实体：<code>&amp;amp; &amp;nbsp; &amp;lt; &amp;gt; &amp;copy; &amp;quote;</code></li>
+<li>表格：table、tr、td、th、colgroup、col、thead、tfoot、tbody、caption</li>
+<li>表单：form、input（text、password、file、hidden、checkbox、radio、email、number、tel、search）、textarea、select、fieldset</li>
+<li>语气：em、strong、ins、del、small</li>
+<li>引用：blockquote、q、cite</li>
+<li>缩略语和上下标：abbr、sup、sub</li>
+<li>代码：code、pre</li>
+<li>换行和水平分割线：br、hr</li>
+<li>布局：div、span</li>
+<li>语义布局：header、nav、main、section、article、aside、footer</li>
+<li>音频和视频：audio、video</li>
+</ul>
+<h3 id="四-CSS"><a href="#四-CSS" class="headerlink" title="四 CSS"></a>四 CSS</h3><ul>
+<li>css：cascading style sheets，层叠样式表：<ol>
+<li>指定文档如何呈现给用户的语言，用来定义文档的样式和布局，决定了网页的表现；</li>
+<li>css的基本单位就是一个个css规则，一个规则由选择器和css声明块组成（与值配对的属性称之为css声明）；</li>
+<li>css工作原理： 浏览器加载html并解析，然后加载css并解析，在然后将解析后的html和css在dom树上进行渲染，最后呈现给用户；</li>
+<li>添加样式表的方式：外部样式表、内部样式表和内联样式表；<h3 id="五-css选择器"><a href="#五-css选择器" class="headerlink" title="五 css选择器"></a>五 css选择器</h3></li>
+</ol>
+</li>
+<li>基本选择器：元素选择器、类选择器、ID选择器、通用选择器、分组选择器；</li>
+<li>关系选择器：子元素选择器（&gt;）、后代选择器、交集选择器、兄弟选择器(+、~)</li>
+<li>属性选择器：E[att]、E[att=”val”]、E[att^=”val”]、E[att$=”val”]、E[att*=”val”]、E[att|=”val”]、E[att~=”val”]</li>
+<li>伪类选择器：E:link、E:visited、E:hover、E:active、E:focus、E:not()、E:first-child、、E:nth-child(n)、E:nth-of-type(n)、E:empty、E:checked、E:disabled、E:enabled</li>
+<li>伪元素选择器：E:after/E::after、E:before/E::before</li>
+</ul>
+<h3 id="六css中单位"><a href="#六css中单位" class="headerlink" title="六css中单位"></a>六css中单位</h3><ul>
+<li>长度单位：px、em、百分比</li>
+<li>颜色单位：rgb、代表颜色的单词、十六进制<h3 id="七-规则优先级"><a href="#七-规则优先级" class="headerlink" title="七 规则优先级"></a>七 规则优先级</h3></li>
+<li>在外部添加样式的情况下，id选择器&gt;类选择器、伪类选择器、属性选择器&gt;元素选择器、伪元素选择器</li>
+</ul>
+</div><div class="post-copyright"><blockquote><p>原文作者: Jmzc</p><p>原文链接: <a href="https://jmzc4j.github.io/2019/08/29/Html初识/">https://jmzc4j.github.io/2019/08/29/Html初识/</a></p><p>版权声明: 转载请注明出处(必须保留作者署名及链接)</p></blockquote></div><div class="tags"><a href="/tags/html/">html</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2019/08/29/JVM初识/" class="pre">JVM初识</a><a href="/2019/08/29/Java基础/" class="next">Java基础</a></div><div id="comments"><div id="container"><script type="text/javascript" src="https://unpkg.com/gitalk/dist/gitalk.min.js?v=2.0.4"></script><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=2.0.4"></script><script>var gitalk = new Gitalk({
+  clientID: '364a9cca58ff5a95c1ee',
+  clientSecret: '1e16b6ba1daa2fddefd4de819db82b9a01f6406f',
+  repo: 'blog-comment',
+  owner: 'jmzc4j',
+  admin: ['jmzc4j'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: false,
+  language: 'zh-CN',
+  pagerDirection: 'last'
+})
+gitalk.render('container')</script></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-软件的架构"><span class="toc-text">一 软件的架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-HTML"><span class="toc-text">二 HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三-HTML元素"><span class="toc-text">三 HTML元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四-CSS"><span class="toc-text">四 CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五-css选择器"><span class="toc-text">五 css选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六css中单位"><span class="toc-text">六css中单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七-规则优先级"><span class="toc-text">七 规则优先级</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/JVM初识/">JVM初识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Html初识/">Html初识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Java基础/">Java基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Eclipse常用配置/">Eclipse常用配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/LogBack配置/">LogBack配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Log4j配置/">Log4j配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Mybatis逆向工程配置/">Mybatis逆向工程配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/MySQL常用配置/">MySQL常用配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/常用数据库的参数配置/">常用数据库的参数配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Mybatis常用配置/">Mybatis常用配置</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IDE工具/">IDE工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置文件/">配置文件</a><span class="category-list-count">7</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/database/" style="font-size: 15px;">database</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/jvm/" style="font-size: 15px;">jvm</a> <a href="/tags/eclipse/" style="font-size: 15px;">eclipse</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/mybatis/" style="font-size: 15px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/log4j/" style="font-size: 15px;">log4j</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/logback/" style="font-size: 15px;">logback</a> <a href="/tags/maven/" style="font-size: 15px;">maven</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://hexo.io/zh-cn/" title="Hexo官网网站" target="_blank">Hexo官网网站</a><ul></ul><a href="https://files-cdn.cnblogs.com/files/live365wang/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C%EF%BC%88%E8%AF%A6%E5%B0%BD%E7%89%88%EF%BC%89.pdf" title="Alibaba Java开发手册" target="_blank">Alibaba Java开发手册</a><ul></ul><a href="https://www.jianshu.com/p/b03a8d7b1719" title="MarkDown基本语法" target="_blank">MarkDown基本语法</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">Jmzc.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.4" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
