@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jmzc4j.github.io/"/>
-  <updated>2019-08-29T06:33:16.936Z</updated>
+  <updated>2019-08-29T10:02:04.683Z</updated>
   <id>https://jmzc4j.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Dos命令</title>
+    <link href="https://jmzc4j.github.io/2019/08/29/Dos%E5%91%BD%E4%BB%A4/"/>
+    <id>https://jmzc4j.github.io/2019/08/29/Dos命令/</id>
+    <published>2019-08-29T09:57:50.000Z</published>
+    <updated>2019-08-29T10:02:04.683Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="dos-下查看端口"><a href="#dos-下查看端口" class="headerlink" title="dos 下查看端口"></a>dos 下查看端口</h3><ul><li><code>netstat -ano | findstr 4000</code>：查看4000端口详细信息;</li><li><code>tasklist | findstr 6068</code>：在任务列表中找到对应PID为6068的进程;</li><li><code>taskkill /F /PID 6068</code>：强制杀死6068进程;</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;dos-下查看端口&quot;&gt;&lt;a href=&quot;#dos-下查看端口&quot; class=&quot;headerlink&quot; title=&quot;dos 下查看端口&quot;&gt;&lt;/a&gt;dos 下查看端口&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;netstat -ano | findstr 4000&lt;/c
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://jmzc4j.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="dos" scheme="https://jmzc4j.github.io/tags/dos/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux之Shell初识</title>
@@ -494,9 +520,9 @@
     <link href="https://jmzc4j.github.io/2019/08/28/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/"/>
     <id>https://jmzc4j.github.io/2019/08/28/使用Hexo搭建博客系统/</id>
     <published>2019-08-27T22:29:42.000Z</published>
-    <updated>2019-08-27T23:08:38.151Z</updated>
+    <updated>2019-08-29T09:33:04.178Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Hexo是什么"><a href="#Hexo是什么" class="headerlink" title="Hexo是什么"></a>Hexo是什么</h3><ul><li>Hexo是Node编写的一个基于markdown引擎的用来快速开发静态博客系统的框架；</li><li>官方网站：<a href="https://hexo.io/" title="hexo.io" target="_blank" rel="noopener">hexo.io</a>;</li></ul><h3 id="Hexo怎么用"><a href="#Hexo怎么用" class="headerlink" title="Hexo怎么用"></a>Hexo怎么用</h3><ul><li>准备环境</li></ul><ol><li>安装node.js,<a href="https://nodejs.org/en/" target="_blank" rel="noopener">下载地址</a>;</li><li>安装git,<a href="https://git-scm.com/" target="_blank" rel="noopener">下载地址</a>;</li></ol><ul><li>安装 hexo-cli </li></ul><ol><li><p>打开GitBash，执行<code>$ npm install -g hexo-cli</code>;</p></li><li><p>创建一个hexo的工作目录，进入目录执行<code>hexo init &lt;folder&gt;</code>;</p></li><li><p>进入初始化的那个目录，执行<code>npm install</code>来构建hexo并安装相应依赖;</p></li><li><p>配置_config.yml文件;</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: Jmzc&apos;s Blog</span><br><span class="line">subtitle:</span><br><span class="line">description: Java,Study,Notes,Daily Life,</span><br><span class="line">keywords:</span><br><span class="line">author: Jmzc</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone:</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: https://jmzc4j.github.io</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:jmzc4j/jmzc4j.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></li><li><p>执行<code>hexo new &lt;title&gt;</code> 新建一个blog；</p></li><li><p>在hexo根目录的source/_posts/找到title.md文件进行博客编辑;</p></li><li><p>执行<code>hexo g 或 hexo generate</code> 生成html静态页面（该页面在pubic文件夹下）</p></li><li><p>执行<code>hexo s 或 hexo server</code> 启动hexo服务在本地进行测试；</p></li><li><p>执行<code>hexo d 或 hexo devlop</code> 将生成的静态页发布到github上;</p></li></ol><ul><li>推送源码到github</li></ul><ol><li><code>git init</code></li><li><code>ssh-keygen -C &#39;jmzc-blog&#39;</code>,然后将家目录中的公钥复制到github上</li><li><code>git remote add hexo-ssh git@github.com:jmzc4j/jmzc4j.github.io.git</code></li><li><code>git checkout -b source</code></li><li><code>git add .</code></li><li><code>git commit -m &#39;hexo init&#39;</code></li><li><code>git push hexo-ssh source</code> </li></ol>]]></content>
+    <content type="html"><![CDATA[<h3 id="Hexo是什么"><a href="#Hexo是什么" class="headerlink" title="Hexo是什么"></a>Hexo是什么</h3><ul><li>Hexo是Node编写的一个基于markdown引擎的用来快速开发静态博客系统的框架；</li><li>官方网站：<a href="https://hexo.io/" title="hexo.io" target="_blank" rel="noopener">hexo.io</a>;</li></ul><h3 id="Hexo怎么用"><a href="#Hexo怎么用" class="headerlink" title="Hexo怎么用"></a>Hexo怎么用</h3><ul><li>准备环境</li></ul><ol><li>安装node.js,<a href="https://nodejs.org/en/" target="_blank" rel="noopener">下载地址</a>;</li><li>安装git,<a href="https://git-scm.com/" target="_blank" rel="noopener">下载地址</a>;</li></ol><ul><li>安装 hexo-cli </li></ul><ol><li><p>打开GitBash，执行<code>$ npm install -g hexo-cli</code>;</p></li><li><p>创建一个hexo的工作目录，进入目录执行<code>hexo init &lt;folder&gt;</code>;</p></li><li><p>进入初始化的那个目录，执行<code>npm install</code>来构建hexo并安装相应依赖;</p></li><li><p>配置_config.yml文件;</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: Jmzc&apos;s Blog</span><br><span class="line">subtitle:</span><br><span class="line">description: Java,Study,Notes,Daily Life,</span><br><span class="line">keywords:</span><br><span class="line">author: Jmzc</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone:</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: https://jmzc4j.github.io</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:jmzc4j/jmzc4j.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></li><li><p>执行<code>hexo new &lt;title&gt;</code> 新建一个blog；</p></li><li><p>在hexo根目录的source/_posts/找到title.md文件进行博客编辑;</p></li><li><p>执行<code>hexo g 或 hexo generate</code> 生成html静态页面（该页面在pubic文件夹下）</p></li><li><p>执行<code>hexo s 或 hexo server</code> 启动hexo服务在本地进行测试；</p></li><li><p>执行<code>hexo d 或 hexo devlop</code> 将生成的静态页发布到github上;</p></li></ol><ul><li>推送源码到github</li></ul><ol><li><code>git init</code></li><li><code>ssh-keygen -C &#39;jmzc-blog&#39;</code>,然后将家目录中的公钥复制到github上</li><li><code>git remote add hexo-ssh git@github.com:jmzc4j/jmzc4j.github.io.git</code></li><li><code>git checkout -b source</code></li><li><code>git add .</code></li><li><code>git commit -m &#39;hexo init&#39;</code></li><li><code>git push hexo-ssh source</code> </li></ol><h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><iframe src="//player.bilibili.com/player.html?aid=55851824&cid=97634618&page=1" width="510" height="400" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>]]></content>
     
     <summary type="html">
     
