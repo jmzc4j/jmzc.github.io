@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Java,Study,Notes,Daily Life,"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style-dark.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight-dark.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><link rel="stylesheet" type="text/css" href="https://unpkg.com/gitalk/dist/gitalk.css?v=2.0.4"><title>Linux概述 | Jmzc's Blog</title></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Linux概述</h1><a id="logo" href="/.">Jmzc's Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">Linux概述</h1><div class="post-meta"><a href="/2019/08/29/Linux概述/#comments" class="comment-count"></a><p><span class="date">Aug 29, 2019</span><span><a href="/categories/学习笔记/" class="category">学习笔记</a></span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h3 id="一、科普知识"><a href="#一、科普知识" class="headerlink" title="一、科普知识"></a>一、科普知识</h3><h5 id="操作系统-operating-system"><a href="#操作系统-operating-system" class="headerlink" title="操作系统(operating system)"></a>操作系统(operating system)</h5><blockquote>
+<p>操作系统就是一个可以直接操作硬件的特殊的软件，是具有如下作用的软件。</p>
+<ul>
+<li>管理和操作硬件设备。</li>
+<li>将对硬件的操作封装成一个又一个的系统调用供其他应用程序使用。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>针对应用领域的不同可以将操作系统分成桌面、服务器、嵌入式和移动设备四大类。</p>
+<ul>
+<li>桌面操作系统（desktop OS）：Windows、macOS、Linux。</li>
+<li>服务器操作系统（server OS）：Linux、Windows Server。</li>
+<li>嵌入式操作系统（embedded OS）：Linux。</li>
+<li>移动设备操作系统（mobile OS）：IOS、Android。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>针对用户不同又分为单用户和多用户操作系统。</p>
+<ul>
+<li>单用户操作系统：一台计算机同一时间只能由一个用户使用，该用户独享全部的硬件和软件资源。</li>
+<li>多用户操作系统：一台计算机同一时间只能由多个用户使用，多个用户共享全部的硬件和软件资源。</li>
+</ul>
+</blockquote>
+<h5 id="网卡-netcard-与IP地址-internet-protocol-address"><a href="#网卡-netcard-与IP地址-internet-protocol-address" class="headerlink" title="网卡(netcard)与IP地址(internet protocol address)"></a>网卡(netcard)与IP地址(internet protocol address)</h5><blockquote>
+<p>网卡是一个专门负责网络通讯的硬件设置，就是那个连接网线的有线网卡和连接wifi的无线网。</p>
+</blockquote>
+<blockquote>
+<p>IP地址就是设置在网卡上的一个逻辑地址信息，它可以唯一标识一个网卡，同时它也是计算机在互联网上的一个唯一标识。</p>
+</blockquote>
+<blockquote>
+<p>IP地址由网络号段和主机号段组成，以“点-数法”表示，分成ABCDE五类；子网掩码的作用就是来区分网络号段和主机号段的；网关实质上也是一个具有路由功能的设备的IP地址。</p>
+</blockquote>
+<h5 id="域名-domain-name-与端口号-port-number"><a href="#域名-domain-name-与端口号-port-number" class="headerlink" title="域名(domain name)与端口号(port number)"></a>域名(domain name)与端口号(port number)</h5><blockquote>
+<p>域名说白了就是IP的别名，具有更好的易记性，通过域名也能准确定位到一台计算机；而端口号指的是TCP/IP协议的端口号，是用来区分网络上不同的应用程序的，通过域名和端口号可以准确的定位到一台计算机上的服务应用程序。</p>
+</blockquote>
+<h3 id="二、细说Linux"><a href="#二、细说Linux" class="headerlink" title="二、细说Linux"></a>二、细说Linux</h3><h5 id="Linux的历史"><a href="#Linux的历史" class="headerlink" title="Linux的历史"></a>Linux的历史</h5><blockquote>
+<p>1965年贝尔实验室(Bell Labs)、麻省理工(MIT)以及通用电气(GE)合作的MULTICS计划，欲要开发一套多用户的(multi-user)、多任务的(multi-processor)、多层次的(multi-level)操作系统,最终因各种原因失败。</p>
+</blockquote>
+<blockquote>
+<p>1969年贝尔实验室的Ken Thompson为了能更好的玩“星际旅行”的游戏，历时一个月使用汇编写出了UNIX操作系统的原型；1970年设计出了B语言，使用该语言完成了第一个UNIX(UNICS的谐音)操作系统。</p>
+</blockquote>
+<blockquote>
+<p>1971年同样酷爱“星际旅行”的Dennis Ritchie加入了Thompson的开发项目进行B语言的改造；到1972年的时候成功在B语言的基础上设计出了C语言；于1973年二人用C语言重写了UNIX操作系统。</p>
+</blockquote>
+<blockquote>
+<p>1991年芬兰大学生Linus Torvalds在Minix的基础上开发了Linux的原型，之后利用GNU的bash开发环境和gcc编译工具编写了Linux内核；后来和众多爱好者共同完成了现如今强大的Linux操作系统。</p>
+</blockquote>
+<h5 id="Linux的概述"><a href="#Linux的概述" class="headerlink" title="Linux的概述"></a>Linux的概述</h5><blockquote>
+<p>Linux就是指Linus’s UNIX，它是一个开放源代码的UNIX，本意是Linux内核的意思，后来被人们称之为Linux操作系统。具有免费、稳定、安全的特点。</p>
+</blockquote>
+<blockquote>
+<p>Linux分为内核版本和发行版本。</p>
+<ul>
+<li>内核版本：是Linux的核心，是运行程序和管理硬件设备的核心程序，官网地址为<a href="https://www.kernel.org" target="_blank" rel="noopener">https://www.kernel.org</a>。</li>
+<li>发行版本：是封装了Linux内核的功能更加强大的Linux操作系统，又分成RedHat系列(如CentOS)和Debian系列(如Ubuntu)。</li>
+<li>CentOS官网：<a href="https://www.centos.org" target="_blank" rel="noopener">https://www.centos.org</a>;Ubuntu官网：<a href="https://www.ubuntu.com" target="_blank" rel="noopener">https://www.ubuntu.com</a>;踩点和扫描网址：<a href="https://www.netcraft.com" target="_blank" rel="noopener">https://www.netcraft.com</a>。</li>
+</ul>
+</blockquote>
+<h5 id="Linux的文件系统和目录结构"><a href="#Linux的文件系统和目录结构" class="headerlink" title="Linux的文件系统和目录结构"></a>Linux的文件系统和目录结构</h5><blockquote>
+<p>Linux的文件系统是一个层级的树状目录结构，没有盘符的概念，只有一个根目录“/”,所有文件都在它下面。</p>
+</blockquote>
+<blockquote>
+<p>Linux的主要目录介绍：</p>
+<ul>
+<li>/：根目录，一切目录的源头。一般只保存目录。</li>
+<li>/boot:启动目录，保存系统启动需要的文件，如内核文件/boot/vmlinuz、引导器/boot/grub。(<font color="red">重点</font>)</li>
+<li>/bin、/usr/bin；可执行二进制文件目录，保存的是如ls、tar这样的普通命令，可供所有用户使用。(<font color="red">重点</font>)</li>
+<li>/sbin、/usr/sbin：系统可执行二进制文件目录，保存跟系统管理相关命令，但该目录的命令只能是超级管理员使用。</li>
+<li>/etc：系统配置文件的默认存放目录，一般只存放配置文件，如/etc/inittab、/etc/init.d、/etc/sysconfig、/etc/fstab、/etc/issue。(<font color="red">重点</font>)</li>
+<li>/home：系统默认的普通用户的家目录，如新建一个名为jmzc的用户，那么家目录就是/home/jmzc。(<font color="red">重点</font>)</li>
+<li>/root：超级用户root的家目录。(<font color="red">重点</font>)</li>
+<li>/lib、/usr/lib、/usr/local/lib：系统的函数库目录，程序执行需要额外调用的函数都保存在这里。</li>
+<li>/usr：全称是unix sofrware resource,系统软件资源目录，类似于windows中的Program Files目录。(<font color="red">重点</font>)</li>
+<li>/mnt、/media：挂载目录，前者是用户临时挂着其他文件系统的目录，后者是系统自动识别的设备的默认挂载目录。(<font color="red">重点</font>)</li>
+<li>/lost+fount：系统异常产生错误时，会将一些遗失的片段放到此目录中。</li>
+<li>/opt；安装第三方软件的目录；通常我们也会使用/usr/local目录作为第三方软件的安装目录。(<font color="red">重点</font>)</li>
+<li>/proc:虚拟文件系统，该目录的文件只保存在内存中，如/proc/version、/proc/cpuinfo。</li>
+<li>/sys、/srv：和/proc目录一样都是跟系统内核相关的目录，非高手不要动它。</li>
+<li>/tmp：临时文件目录。</li>
+<li>/dev：硬件设备存放目录。(<font color="red">重点</font>)</li>
+<li>/var：动态数据的存在目录，如，日志，邮件等。(<font color="red">重点</font>)</li>
+<li>/selinux：全称security enhanced linux，安全增强子系统，类似于360防护。</li>
+<li>/dev/null、/dev/zero：2个特殊的目录，一个回收站，一个用于磁盘复制（dd命令）。</li>
+</ul>
+</blockquote>
+<h3 id="三、使用Linux你需要知道的几个常识"><a href="#三、使用Linux你需要知道的几个常识" class="headerlink" title="三、使用Linux你需要知道的几个常识"></a>三、使用Linux你需要知道的几个常识</h3><blockquote>
+<ol>
+<li>linux中的内容都是以文件的形式保存的，包括硬件，即“在Linux中，一切皆文件”。</li>
+<li>linux中的存储设置一般需要挂载之后才能使用。</li>
+<li>Linux作为远程服务器时一般不允许关机，只能重启而且重启前最好同步数据并关闭服务。</li>
+<li>Linux中的文件不是以后缀名来区分，而是用文件的权限来区分的。</li>
+<li>linux作为服务器要定期的备份重要数据和日志。</li>
+<li>用户密码需要具有规范性、时效性、易记性和复杂性。</li>
+<li>通常不要直接使用系统预设用户“root”来登录，而要使用普通用户登录。</li>
+</ol>
+</blockquote>
+</div><div class="post-copyright"><blockquote><p>原文作者: Jmzc</p><p>原文链接: <a href="https://jmzc4j.github.io/2019/08/29/Linux概述/">https://jmzc4j.github.io/2019/08/29/Linux概述/</a></p><p>版权声明: 转载请注明出处(必须保留作者署名及链接)</p></blockquote></div><div class="tags"><a href="/tags/linux/">linux</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2019/08/29/Linux命令/" class="pre">Linux命令</a><a href="/2019/08/29/JVM初识/" class="next">JVM初识</a></div><div id="comments"><div id="container"><script type="text/javascript" src="https://unpkg.com/gitalk/dist/gitalk.min.js?v=2.0.4"></script><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=2.0.4"></script><script>var gitalk = new Gitalk({
+  clientID: '364a9cca58ff5a95c1ee',
+  clientSecret: '1e16b6ba1daa2fddefd4de819db82b9a01f6406f',
+  repo: 'blog-comment',
+  owner: 'jmzc4j',
+  admin: ['jmzc4j'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: false,
+  language: 'zh-CN',
+  pagerDirection: 'last'
+})
+gitalk.render('container')</script></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、科普知识"><span class="toc-text">一、科普知识</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#操作系统-operating-system"><span class="toc-text">操作系统(operating system)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#网卡-netcard-与IP地址-internet-protocol-address"><span class="toc-text">网卡(netcard)与IP地址(internet protocol address)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#域名-domain-name-与端口号-port-number"><span class="toc-text">域名(domain name)与端口号(port number)</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#二、细说Linux"><span class="toc-text">二、细说Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux的历史"><span class="toc-text">Linux的历史</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux的概述"><span class="toc-text">Linux的概述</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux的文件系统和目录结构"><span class="toc-text">Linux的文件系统和目录结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、使用Linux你需要知道的几个常识"><span class="toc-text">三、使用Linux你需要知道的几个常识</span></a></li></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Linux之Shell初识/">Linux之Shell初识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Linux命令/">Linux命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Linux概述/">Linux概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/JVM初识/">JVM初识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Html初识/">Html初识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Java基础/">Java基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Eclipse常用配置/">Eclipse常用配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/LogBack配置/">LogBack配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Log4j配置/">Log4j配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Mybatis逆向工程配置/">Mybatis逆向工程配置</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IDE工具/">IDE工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置文件/">配置文件</a><span class="category-list-count">7</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/jvm/" style="font-size: 15px;">jvm</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/mybatis/" style="font-size: 15px;">mybatis</a> <a href="/tags/eclipse/" style="font-size: 15px;">eclipse</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/database/" style="font-size: 15px;">database</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/log4j/" style="font-size: 15px;">log4j</a> <a href="/tags/maven/" style="font-size: 15px;">maven</a> <a href="/tags/logback/" style="font-size: 15px;">logback</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://hexo.io/zh-cn/" title="Hexo官网网站" target="_blank">Hexo官网网站</a><ul></ul><a href="https://files-cdn.cnblogs.com/files/live365wang/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C%EF%BC%88%E8%AF%A6%E5%B0%BD%E7%89%88%EF%BC%89.pdf" title="Alibaba Java开发手册" target="_blank">Alibaba Java开发手册</a><ul></ul><a href="https://www.jianshu.com/p/b03a8d7b1719" title="MarkDown基本语法" target="_blank">MarkDown基本语法</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">Jmzc.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.4" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
