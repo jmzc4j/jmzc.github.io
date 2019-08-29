@@ -54,3 +54,6 @@ categories: 学习笔记
 5. `git add .`
 6. `git commit -m 'hexo init'`
 7. `git push hexo-ssh source` 
+
+### 视频教程
+{% xvideos //player.bilibili.com/player.html?aid=55851824&cid=97634618&page=1 %}

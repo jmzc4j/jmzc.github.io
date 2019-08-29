@@ -130,3 +130,8 @@ deploy:
   type: git
   repo: git@github.com:jmzc4j/jmzc4j.github.io.git
   branch: master
+  
+### xvideos插件配置
+xvideos:
+  width: 510 
+  height: 400 
