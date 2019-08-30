@@ -3,7 +3,6 @@ title: Docker入门
 date: 2019-08-28 17:09:05
 tags: docker
 categories: 学习笔记
-description: docker、docker入门、docker命令、dockfile
 ---
 ### what is
 - Docker是一个容器管理引擎，是一个轻量级的虚拟化技术；从镜像和容器的角度来定义一个应用；

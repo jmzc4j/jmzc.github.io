@@ -166,3 +166,5 @@ categories: 配置文件
 	<logger name="java.sql.PreparedStatement" level="DEBUG"/>
 </configuration>
 ```
+### 附件
+{% asset_link logback.xml 配置文件 %}

@@ -80,3 +80,6 @@ categories: 配置文件
 	</context>
 </generatorConfiguration>
 ```
+### 附件
+{% asset_link generatorConfig.properties %}
+{% asset_link generatorConfig.xml %}

@@ -326,3 +326,5 @@ goal：mybatis-generator:generate
 - [CSDN-30个常用的 Maven 命令](https://blog.csdn.net/benhuo931115/article/details/80674760)
 - [CSDN-maven-surefire-plugin简介](https://blog.csdn.net/en_joker/article/details/84067071)
 
+### 附件
+{% asset_link settings.xml maven-settings %}

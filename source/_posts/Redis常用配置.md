@@ -75,3 +75,6 @@ categories: 配置文件
   activerehashing yes
 30. 指定包含其它的配置文件，可以在同一主机上多个Redis实例之间使用同一份配置文件，而同时各个实例又拥有自己的特定配置文件
   include /path/to/local.conf
+  
+### 附件
+{% asset_link redis.conf 未改动过的配置文件 %}

@@ -90,3 +90,5 @@ categories: 学习笔记
 - [博客园-Git命令总结](https://www.cnblogs.com/chris0710/p/8925977.html);
 - [廖雪峰-Git教程](https://www.liaoxuefeng.com/wiki/896043488029600);
 
+### 附件
+{% asset_link Java.gitignore gitignore配置 %}

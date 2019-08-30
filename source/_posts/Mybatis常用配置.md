@@ -99,3 +99,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</mappers>
 </configuration>
 ```
+
+### 附件
+{% asset_link mybatis-config.xm %}
+l

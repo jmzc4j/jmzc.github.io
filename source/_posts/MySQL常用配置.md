@@ -43,3 +43,6 @@ innodb_thread_concurrency=10		#允许连接INNODB内核的最大并发线程数�
 
 \#SQL模式为严格模式
 sql-mode="STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"               
+
+### 附件
+{% asset_link mysql.cnf 配置文件 %}

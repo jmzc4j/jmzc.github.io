@@ -155,3 +155,6 @@ log4j.appender.busi.DatePattern='.'yyyy-MM-dd-HH
 log4j.appender.busi.layout=org.apache.log4j.PatternLayout
 log4j.appender.busi.layout.ConversionPattern=[%d{yyyy-MM-dd HH:mm:ss}] %l%t %m%n
 ```
+### 附件
+{% asset_link log4j.properties properties版 %}
+{% asset_link log4j.xml xml版 %}
