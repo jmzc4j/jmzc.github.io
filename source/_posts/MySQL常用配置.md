@@ -46,3 +46,5 @@ sql-mode="STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
 
 ### 附件
 {% asset_link mysql.cnf 配置文件 %}
+{% asset_link druid.properties druid常用配置 %}
+

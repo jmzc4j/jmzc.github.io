@@ -267,6 +267,41 @@ my-app
 
 goal：mybatis-generator:generate
 ```
+- tomcat插件
+	```
+	<plugin>
+		<groupId>org.apache.tomcat.maven</groupId>
+		<artifactId>tomcat7-maven-plugin</artifactId>
+		<version>2.2</version>
+		   <configuration>
+			  <path>/</path>
+			  <port>8080</port>
+			  <server>tomcat7</server>
+		   </configuration>
+			<executions>
+				<execution>
+					<phase>package</phase>
+					<goals>
+						<goal>run</goal>
+					</goals>
+				</execution>
+			</executions>
+	</plugin>
+	```
+	```
+	<plugin>
+		<groupId>org.codehaus.mojo</groupId>
+		<artifactId>tomcat-maven-plugin</artifactId>
+		<version>1.1</version>
+		<configuration>
+			<path>/wp</path>
+			<port>8080</port>
+			<uriEncoding>UTF-8</uriEncoding>
+			<url>http://localhost:8080/manager/html</url>
+			<server>tomcat6</server>
+		</configuration>
+	</plugin>
+	```
 
 ### Maven中的属性
 - 内置属性：
