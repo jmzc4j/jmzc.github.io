@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Java,Study,Notes,Daily Life,"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style-dark.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight-dark.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><link rel="stylesheet" type="text/css" href="https://unpkg.com/gitalk/dist/gitalk.css?v=2.0.4"><title>Linux之Shell初识 | Jmzc's Blog</title></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Linux之Shell初识</h1><a id="logo" href="/.">Jmzc's Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">Linux之Shell初识</h1><div class="post-meta"><a href="/2019/08/29/Linux之Shell初识/#comments" class="comment-count"></a><p><span class="date">Aug 29, 2019</span><span><a href="/categories/学习笔记/" class="category">学习笔记</a></span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h3 id="Shell概述"><a href="#Shell概述" class="headerlink" title="Shell概述"></a>Shell概述</h3><blockquote>
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Java,Study,Notes,Daily Life,"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style-dark.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight-dark.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><link rel="stylesheet" type="text/css" href="https://unpkg.com/gitalk/dist/gitalk.css?v=2.0.4"><title>Linux之Shell初识 | Jmzc's Blog</title></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Linux之Shell初识</h1><a id="logo" href="/.">Jmzc's Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/playlist/"><i class="fa fa-empty"> 歌单</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">Linux之Shell初识</h1><div class="post-meta"><a href="/2019/08/29/Linux之Shell初识/#comments" class="comment-count"></a><p><span class="date">Aug 29, 2019</span><span><a href="/categories/学习笔记/" class="category">学习笔记</a></span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h3 id="Shell概述"><a href="#Shell概述" class="headerlink" title="Shell概述"></a>Shell概述</h3><blockquote>
 <p>Shell是一个命令解释器，为用户提供一个向内核发送请求的界面；同时它还是解释执行的脚本语言。</p>
 </blockquote>
 <blockquote>
@@ -27,21 +27,22 @@
 </blockquote>
 <blockquote>
 <p>自定义变量</p>
+</blockquote>
 <ul>
 <li>格式：变量=值 （注意：等号两边没有空格）。</li>
 <li>使用readonly关键字声明静态变量，此时该变量不能被销毁。</li>
 <li><code>export 自定义变量</code>：可以将自定义变量提升为系统变量。</li>
 </ul>
-</blockquote>
 <blockquote>
 <p>系统变量（环境变量）</p>
+</blockquote>
 <ul>
 <li>系统变量名一般大写。</li>
 <li><code>source</code>或者<code>.</code> 可以重新加载配置文件。</li>
 </ul>
-</blockquote>
 <blockquote>
 <p>位置参数变量</p>
+</blockquote>
 <ul>
 <li>用来接受命令中的相应位置的参数。</li>
 <li><code>$n</code>：$0表示这条命令本身，$1-$9、$(10)、$(11)…表示第n个参数。</li>
@@ -49,43 +50,42 @@
 <li><code>$@</code>：也表示所有参数，将所有参数分别对待，常用在循环中。</li>
 <li><code>$#</code>：表示所有参数的个数。</li>
 </ul>
-</blockquote>
 <blockquote>
 <p>预定义变量</p>
+</blockquote>
 <ul>
 <li><code>$$</code>：表示当前进程的PID。</li>
 <li><code>$!</code>：表示后台进程中的最后一个进程的PID。</li>
 <li><code>$?</code>：表示一个命令的执行状态，0表示正确执行。</li>
 </ul>
-</blockquote>
 <h5 id="键盘输入"><a href="#键盘输入" class="headerlink" title="键盘输入"></a>键盘输入</h5><blockquote>
 <p><code>read [选项] [变量]</code><br>常用选项</p>
+</blockquote>
 <ul>
 <li>-t：该命令的等待时间，单位是秒。</li>
 <li>-p：给出提示信息。</li>
 <li>-s：隐藏输入数据。</li>
 <li>read -s -t 30 -p “请输入你的年龄：” age   </li>
 </ul>
-</blockquote>
 <h5 id="提取命令"><a href="#提取命令" class="headerlink" title="提取命令"></a>提取命令</h5><blockquote>
 <p><code>cut -d 分隔符 -f 指定列</code> ：按指定分隔符提取指定列，通常和grep配合使用。</p>
+</blockquote>
 <ul>
 <li>cat /etc/passwd | grep /bin/bash | grep -v root | cut -d “:” -f 1</li>
 </ul>
-</blockquote>
 <blockquote>
 <p><code>awk &#39;条件1{动作1} 条件2{动作2}...&#39; 文件</code></p>
+</blockquote>
 <ul>
 <li>还是不太懂！！！</li>
 </ul>
-</blockquote>
 <h5 id="sed命令（流编辑器）"><a href="#sed命令（流编辑器）" class="headerlink" title="sed命令（流编辑器）"></a>sed命令（流编辑器）</h5><blockquote>
 <p>比vi更强大，用的不多，可以对管道符的结果进行编辑。</p>
+</blockquote>
 <ul>
 <li><code>sed [选项] &#39;动作&#39; 文件</code></li>
 <li>还是不懂！！！</li>
 </ul>
-</blockquote>
 <h5 id="排序命令和统计命令"><a href="#排序命令和统计命令" class="headerlink" title="排序命令和统计命令"></a>排序命令和统计命令</h5><blockquote>
 <p><code>sort</code>与<code>wc</code></p>
 </blockquote>
@@ -97,26 +97,26 @@
 </blockquote>
 <blockquote>
 <p>文件比较</p>
+</blockquote>
 <ul>
 <li><code>A -oq B</code>和<code>A -nq B</code>：判断文件A的修改时间是不是比B旧或者新。</li>
 <li><code>-e</code>、<code>-d</code>、<code>-f</code>：判断文件是否存在，存在并且是目录、存在并且是文件。</li>
 <li><code>A -ef B</code>：判断A文件与B文件的inode是否一致。</li>
 </ul>
-</blockquote>
 <blockquote>
 <p>数值比较</p>
+</blockquote>
 <ul>
 <li><code>-eq</code>、<code>-gt</code>、<code>-lt</code>、<code>ge</code>、<code>le</code>、<code>ne</code>。</li>
 </ul>
-</blockquote>
 <blockquote>
 <p>字符串比较</p>
+</blockquote>
 <ul>
 <li><code>str1==str2</code>或者<code>str1 = str2</code>：判断字符串相等，注意等号的空格。</li>
 <li><code>-n</code>或者<code>-z</code>：判断是否是空串，前者非空返回真，后者空返回真。</li>
 <li><code>str1!=str2</code>：不等判断。</li>
 </ul>
-</blockquote>
 <h5 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h5><blockquote>
 <p>if结构</p>
 </blockquote>
@@ -148,17 +148,17 @@
 
 <h5 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h5><blockquote>
 <p>系统函数<br>basename [filepath] [suffix] ：取得filepath路径中的文件名并排除suffix后缀</p>
+</blockquote>
 <ul>
 <li>basename /home/aaa/bbb.txt .txt   结果是bbb</li>
 <li>basename /home/aaa/bbb.text    结果是bbb.txt</li>
 </ul>
-</blockquote>
 <blockquote>
 <p>dirname [filepath] :取得filepath路径的目录部分</p>
+</blockquote>
 <ul>
 <li>dirname /home/aaa/bbb.txt    结果是/home/aaa</li>
 </ul>
-</blockquote>
 <blockquote>
 <p>自定义函数</p>
 </blockquote>
@@ -183,4 +183,4 @@
   language: 'zh-CN',
   pagerDirection: 'last'
 })
-gitalk.render('container')</script></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shell概述"><span class="toc-text">Shell概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shell语言"><span class="toc-text">Shell语言</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#编写和执行"><span class="toc-text">编写和执行</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#注释"><span class="toc-text">注释</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#多命令的执行顺序"><span class="toc-text">多命令的执行顺序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Shell中变量"><span class="toc-text">Shell中变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#键盘输入"><span class="toc-text">键盘输入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#提取命令"><span class="toc-text">提取命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sed命令（流编辑器）"><span class="toc-text">sed命令（流编辑器）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#排序命令和统计命令"><span class="toc-text">排序命令和统计命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#运算符"><span class="toc-text">运算符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#判断符"><span class="toc-text">判断符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#流程控制"><span class="toc-text">流程控制</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#函数"><span class="toc-text">函数</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#综合案例"><span class="toc-text">综合案例</span></a></li></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Dos命令/">Dos命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Linux之Shell初识/">Linux之Shell初识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Linux命令/">Linux命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Linux概述/">Linux概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/JVM初识/">JVM初识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Html初识/">Html初识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Java基础/">Java基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Eclipse常用配置/">Eclipse常用配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/LogBack配置/">LogBack配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/Log4j配置/">Log4j配置</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IDE工具/">IDE工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置文件/">配置文件</a><span class="category-list-count">7</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/dos/" style="font-size: 15px;">dos</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/eclipse/" style="font-size: 15px;">eclipse</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/jvm/" style="font-size: 15px;">jvm</a> <a href="/tags/mybatis/" style="font-size: 15px;">mybatis</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/database/" style="font-size: 15px;">database</a> <a href="/tags/log4j/" style="font-size: 15px;">log4j</a> <a href="/tags/logback/" style="font-size: 15px;">logback</a> <a href="/tags/maven/" style="font-size: 15px;">maven</a> <a href="/tags/java/" style="font-size: 15px;">java</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://hexo.io/zh-cn/" title="Hexo官网网站" target="_blank">Hexo官网网站</a><ul></ul><a href="https://files-cdn.cnblogs.com/files/live365wang/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C%EF%BC%88%E8%AF%A6%E5%B0%BD%E7%89%88%EF%BC%89.pdf" title="Alibaba Java开发手册" target="_blank">Alibaba Java开发手册</a><ul></ul><a href="https://www.jianshu.com/p/b03a8d7b1719" title="MarkDown基本语法" target="_blank">MarkDown基本语法</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">Jmzc.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.4" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
+gitalk.render('container')</script></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shell概述"><span class="toc-text">Shell概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shell语言"><span class="toc-text">Shell语言</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#编写和执行"><span class="toc-text">编写和执行</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#注释"><span class="toc-text">注释</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#多命令的执行顺序"><span class="toc-text">多命令的执行顺序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Shell中变量"><span class="toc-text">Shell中变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#键盘输入"><span class="toc-text">键盘输入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#提取命令"><span class="toc-text">提取命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sed命令（流编辑器）"><span class="toc-text">sed命令（流编辑器）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#排序命令和统计命令"><span class="toc-text">排序命令和统计命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#运算符"><span class="toc-text">运算符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#判断符"><span class="toc-text">判断符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#流程控制"><span class="toc-text">流程控制</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#函数"><span class="toc-text">函数</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#综合案例"><span class="toc-text">综合案例</span></a></li></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Hexo插入音乐或视频/">Hexo插入音乐或视频</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Dos命令/">Dos命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Linux之Shell初识/">Linux之Shell初识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Linux命令/">Linux命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Linux概述/">Linux概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/JVM初识/">JVM初识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Html初识/">Html初识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Java基础/">Java基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/29/Eclipse常用配置/">Eclipse常用配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/28/LogBack配置/">LogBack配置</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IDE工具/">IDE工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置文件/">配置文件</a><span class="category-list-count">7</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/mybatis/" style="font-size: 15px;">mybatis</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/dos/" style="font-size: 15px;">dos</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/jvm/" style="font-size: 15px;">jvm</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/eclipse/" style="font-size: 15px;">eclipse</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/database/" style="font-size: 15px;">database</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/log4j/" style="font-size: 15px;">log4j</a> <a href="/tags/logback/" style="font-size: 15px;">logback</a> <a href="/tags/maven/" style="font-size: 15px;">maven</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://hexo.io/zh-cn/" title="Hexo官网网站" target="_blank">Hexo官网网站</a><ul></ul><a href="https://files-cdn.cnblogs.com/files/live365wang/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C%EF%BC%88%E8%AF%A6%E5%B0%BD%E7%89%88%EF%BC%89.pdf" title="Alibaba Java开发手册" target="_blank">Alibaba Java开发手册</a><ul></ul><a href="https://www.jianshu.com/p/b03a8d7b1719" title="MarkDown基本语法" target="_blank">MarkDown基本语法</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">Jmzc.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.4" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
