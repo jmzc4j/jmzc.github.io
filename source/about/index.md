@@ -1,7 +1,4 @@
 ---
-title: about
-date: 2019-08-28 03:38:51
-
-layout: about
-type: about
+title: 关于我
+date: 2019-08-30 01:06:40
 ---

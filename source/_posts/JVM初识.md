@@ -6,7 +6,7 @@ categories: 学习笔记
 ---
 ### JVM内存模型
 - JVM是运行在操作系统之上的，它与硬件没有直接的交互；
-![JVM模型](/imgss/jvm.png)
+{% asset_img jvm.png JVM模型 %}
 - 堆空间和方法区被线程共享;程序计数器、虚拟机栈和本地方法栈被线程私有；
 - 常见的JVM实现有SUN hotspot、BEA jrockit、IBM j9；
 
@@ -22,7 +22,7 @@ categories: 学习笔记
 	3. 初始化：为静态变量进行真实初始化
 		- 只有在首次主
 - 装载器分类
-![ClassLoader继承](/imgss/classloader.png)
+{% asset_img classloader.png 类装载器继承体系 %}
 - 虚拟机自带的加载器:
 	启动类加载器（Bootstrap）C++
 	扩展类加载器（Extension）Java
@@ -54,7 +54,7 @@ categories: 学习笔记
 ### 堆空间
 - 一个JVM实例只存在一个堆内存，堆内存的大小是可以调节的。类加载器读取了类文件后，需要把类、方法、常变量放到堆内存中，保存所有引用类型的真实信息，以方便执行器执行。
 - 堆内存逻辑上分为三部分：新生+养老+永久（JDK8以前）;
-![堆空间模型](/imgss/heap.png)
+{% asset_img heap.png 堆内存模型 %}
 #### 新生区
 - 新生区是类的诞生、成长、消亡的区域，一个类在这里产生，应用，最后被垃圾回收器收集，结束生命；
 - 新生区又分为两部分：伊甸区（Eden）和幸存者区（Survivor），所有的类都是在伊甸区被new出来的。幸存区有两个： 0区（Survivor 0 space）和1区（Survivor 1 space）;

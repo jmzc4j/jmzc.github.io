@@ -14,13 +14,16 @@ menu:
     directory: .
     icon: fa-home
   - page: archive
-    directory: archives/
+    directory: /archives/
     icon: fa-archive
+  - page: playlist
+    directory: /playlist/
+    icon: fa-empty
   - page: about
-    directory: about/
+    directory: /about/
     icon: fa-user
   - page: rss
-    directory: atom.xml
+    directory: /atom.xml
     icon: fa-rss
 
 # Sidebar
@@ -51,15 +54,8 @@ date_formats:
 
 # Extensions
 Plugins:
-  hexo-generator-feed
   hexo-generator-sitemap
   hexo-generator-baidu-sitemap
-
-#Feed Atom
-feed:
-  type: atom
-  path: atom.xml
-  limit: 20
 
 #sitemap
 sitemap:
@@ -125,7 +121,7 @@ busuanzi: true ## If you want to use Busuanzi page views please set the value to
 
 # About page
 about:
-  photo_url: /img/dream.jpg ## Your photo 
+  photo_url: /img/45.jpg ## Your photo 
   items:
   - label: email
     url: mailto:jmzc_top@aliyun.com ## Your email with mailto:
