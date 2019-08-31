@@ -53,7 +53,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	
 	<plugins>
 		<!-- 
-			插件配置：以AOP的方式对Executor、MappedStatement、ParameterHandler、ResultSetHandler四大对象的方法进行拦截；
+			插件配置：以AOP的方式对Executor、StatementHandler、ParameterHandler、ResultSetHandler四大对象的方法进行拦截；
 			自定义插件的步骤：
 			1. 实现Intercept接口，逐一实现setProperties()、plugin()和intercept()方法；
 			2. 为定制的插件进行签名，使用@@Intercepts注解；
