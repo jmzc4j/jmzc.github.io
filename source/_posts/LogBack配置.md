@@ -29,7 +29,7 @@ categories: 配置文件
 	scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。
 	debug: 当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。
 -->
-<configuration debug="true" scan="true" scanPeriod="60 seconds">
+<configuration debug="false" scan="true" scanPeriod="60 seconds">
 	<!-- 上下文名称，用于区分不同应用程序的记录 默认default -->
 	<contextName>default</contextName>
 
@@ -52,7 +52,7 @@ categories: 配置文件
 	<!-- 发件人用户名 -->
 	<property name="username" value="jmzc_top" />
 	<!-- 发件人授权码 -->
-	<property name="password" value="grant163tojmzc" />
+	<property name="password" value="shouquanma" />
 	<!-- 安全连接 默认false -->
 	<property name="SSL" value="false" />
 	<!-- 收件人邮箱 -->

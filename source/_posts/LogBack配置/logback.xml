@@ -27,7 +27,7 @@
 	<!-- 发件人用户名 -->
 	<property name="username" value="jmzc_top" />
 	<!-- 发件人授权码 -->
-	<property name="password" value="grant163tojmzc" />
+	<property name="password" value="shouquanma" />
 	<!-- 安全连接 默认false -->
 	<property name="SSL" value="false" />
 	<!-- 收件人邮箱 -->
