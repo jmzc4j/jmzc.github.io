@@ -34,9 +34,17 @@ categories: IDE工具
 - FindBugs-IDEA ： 代码 Bug 检查；
 - Lombok ；Lombok支持；
 - PlanUML intergration ：UML插件；
+- mybatisx：Mybatis-plus插件
 
 ### 如何删除模块
 - 选中模块->右键Open Module Settings->点击'-'号->将module从project移除->delete;
+
+### 去掉IntelliJ IDEA 中mapper xml 文件警告
+- IntelliJ IDEA 打开 mybatis 的 xml 文件时，对应的 xml 文件中 sql 语句背景色总是有黄色或绿色的背景色；
+- 该如何去除呢
+	1. 去掉 No data sources configure 警告:Prefernces->Editor->Inspections->SQL-> 取消勾选 No data sources configure;
+	2. 去掉 SQL dialect is not configured 警告:Editor->Inspections->SQL-> 取消勾选 SQL dialect detection;
+	3. 去掉“注入语言”的背景色:Prefernces->Editor->Color Schema->General->Code->Injected language fragment->取消勾选Background；
 
 ### 附件
 {% asset_link idea.pdf idea配置详解 %}
